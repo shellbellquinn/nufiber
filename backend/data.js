@@ -1,8 +1,7 @@
 import bcrypt from 'bcryptjs';
 
 const data = {
-  users: [
-    {
+  users: [{
       name: 'Michelle',
       email: 'admin@example.com',
       password: bcrypt.hashSync('1234', 8),
@@ -15,8 +14,7 @@ const data = {
       isAdmin: false,
     },
   ],
-  products: [
-    {
+  products: [{
       name: 'Blue Cut End Pocket Mop',
       system: 'Sealed Bucket (Pretreat) System',
       image: '/images/NFPM18BLEA.jpg',
@@ -27,8 +25,8 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads", 
-      countInStock: 20,     
+      type: "Mops / Cloths / Pads",
+      countInStock: 20,
       description: '18" Blue Pocket Mop color-coded Blue for General Purpose Cleaning. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable blue H/D pocket back, and cut end Fringe.',
       dupsystem: ''
     },
@@ -44,12 +42,12 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads", 
-      countInStock: 20,     
+      type: "Mops / Cloths / Pads",
+      countInStock: 20,
       description: '18" Green Pocket Mop color-coded Green for cleaning in Food Service areas. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable green H/D pocket back, and cut end Fringe.',
       dupsystem: ''
     },
-  
+
 
     {
       name: 'Red Cut End Pocket Mop',
@@ -62,8 +60,8 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads", 
-      countInStock: 20,     
+      type: "Mops / Cloths / Pads",
+      countInStock: 20,
       description: '18" Red Pocket Mop color-coded Red for cleaning in Critical Touch Point areas. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable red H/D pocket back, and cut end Fringe.',
       dupsystem: '',
     },
@@ -79,8 +77,8 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads", 
-      countInStock: 20,     
+      type: "Mops / Cloths / Pads",
+      countInStock: 20,
       description: '18" Pocket Mop color-coded Yellow. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable red H/D pocket back, and cut end Fringe.',
       dupsystem: '',
     },
@@ -96,12 +94,148 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 50,
       weight: 14,
-      type: "Mops / Cloths / Pads", 
-      countInStock: 20,     
+      type: "Mops / Cloths / Pads",
+      countInStock: 20,
       description: 'Economical low nap blue yarn pocket mop with gray pocket backing',
       dupsystem: '',
     },
-    
+
+    {
+        name: "Long Loop L/L White Pocket Finish Mop",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFPM18WHEA.jpg",
+        price: 5.67,
+        msrp: 11.33,
+        code: "NFPM18WHEA",
+        dimension: "21",
+        caseqty: 36,
+        weight: 15,
+        type: "Mops / Cloths / Pads",
+        countInStock: 20,
+        description: "Long loop L/L white pocket fin mop wit mesh back and preconditioned white microfiber yarn ",
+        dupsystem: ''
+      },
+      {
+        name: "Blue Pocket Scrubber Mop",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFSCRUB-IT-PKT.jpg",
+        price: 4.54,
+        msrp: 9.09,
+        code: "NFSCRUB-IT-PKT",
+        dimension: "21",
+        caseqty: 36,
+        weight: 15,
+        type: "Mops / Cloths / Pads",
+        countInStock: 20,
+        description: "Pocket Scrubber mop with built in scrubber strips for hard to clean floors",
+        dupsystem: ''
+      },
+      {
+        name: "18",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFPKT-WHT.jpg",
+        price: 5.92,
+        msrp: 11.84,
+        code: "NFPKT-WHT",
+        dimension: "18",
+        caseqty: 36,
+        weight: 14,
+        type: "Mops / Cloths / Pads",
+        countInStock: 20,
+        description: "18",
+        dupsystem: ''
+      },
+      {
+        name: "Blue 6 Gallon Mop Bucket with Lid",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFSB06BLEA.jpg",
+        price: 20.13,
+        msrp: 40.25,
+        code: "NFSB06BLEA",
+        dimension: "26x13x23",
+        caseqty: 5,
+        weight: 18,
+        type: "Buckets",
+        countInStock: 20,
+        description: "6 gallon sealed bucket for charging flat mops. Capacity up to 30 pocket mops per charge. Array mops in bucket, charge them. Seal bucket with sealer lid and turn over. After a few minutes, turn upright and begin to clean using wet, but not dripping mops. ",
+        dupsystem: ''
+      },
+      {
+        name: "Four Pack Caster Set",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFSB6-CASTER.jpg",
+        price: 9.20,
+        msrp: 18.40,
+        code: "NFSB6-CASTER",
+        dimension: "0",
+        caseqty: 4,
+        weight: 0,
+        type: "Replacements / Accessories",
+        countInStock: 20,
+        description: "4 pack caster set for the 6 gallon mop bucket",
+        dupsystem: ''
+      },
+      {
+        name: "Gray 6 Gallon Mop Bucket with Lid",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFCTSBGYEA.jpg",
+        price: 20.13,
+        msrp: 40.25,
+        code: "NFCTSBGYEA",
+        dimension: "26x13x23",
+        caseqty: 5,
+        weight: 18,
+        type: "Buckets",
+        countInStock: 20,
+        description: "6 gallon sealed bucket for charging flat mops. Capacity up to 30 pocket mops per charge. Array mops in bucket, charge them. Seal bucket with sealer lid and turn over. After a few minutes, turn upright and begin to clean using wet, but not dripping mops. ",
+        dupsystem: ''
+      },
+      {
+        name: "Replacement Lid for Blue 6 Gallon Sealed Bucket",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFSB-LID6.jpg",
+        price: 11.44,
+        msrp: 22.89,
+        code: "NFSB-LID6",
+        dimension: "0",
+        caseqty: 1,
+        weight: 1,
+        type: "Replacements / Accessories",
+        countInStock: 20,
+        description: "Blue Lid for SB6BLU (Lid Only)",
+        dupsystem: ''
+      },
+      {
+        name: "Narrow Blue 6 Gallon Mop Bucket with Lid",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFS-19005.jpg",
+        price: 19.15,
+        msrp: 38.30,
+        code: "NFS-19005",
+        dimension: "26x13x23",
+        caseqty: 5,
+        weight: 18,
+        type: "Buckets",
+        countInStock: 20,
+        description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
+        dupsystem: ''
+      },
+      {
+        name: "Narrow Gray 6 Gallon Mop Bucket with Lid",
+        system: 'Sealed Bucket (Pretreat) System',
+        image: "/images/NFS-19004.jpg",
+        price: 19.15,
+        msrp: 38.30,
+        code: "NFS-19004",
+        dimension: "26x13x23",
+        caseqty: 5,
+        weight: 18,
+        type: "Buckets",
+        countInStock: 20,
+        description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
+        dupsystem: ''
+      }
+
   ],
 };
 export default data;
