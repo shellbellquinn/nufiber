@@ -6,7 +6,6 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import ReactDOM from "react-dom";
 import Pdf from "react-to-pdf";
 
 

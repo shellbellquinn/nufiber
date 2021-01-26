@@ -11,8 +11,14 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from '../constants/orderConstants';
+import Pdf from "react-to-pdf";
+
 
 export default function OrderScreen(props) {
+  const ref = React.createRef();
+  const options = {
+      orientation: 'landscape',
+  };
   const orderId = props.match.params.id;
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
@@ -77,7 +83,7 @@ export default function OrderScreen(props) {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <div className='root' ref={ref}>
       <h1>Order {order._id}</h1>
       <div className="row top">
         <div className="col-2">
@@ -182,6 +188,10 @@ export default function OrderScreen(props) {
                   </div>
                 </div>
               </li>
+              <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
+                
+                {({ toPdf }) => <button className="primary block" onClick={toPdf}>Download Order as PDF</button>}
+           </Pdf>
               {/* {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
