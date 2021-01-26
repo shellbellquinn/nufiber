@@ -82,112 +82,91 @@ export default function ProductListScreen(props) {
   };
 
 
-  return ( <
-      div >
-      <
-      div className = "row" >
-      <
-      h1 > Products < /h1> <
-      button type = "button"
-      className = "primary"
-      onClick = {
-        createHandler
-      } >
-      Create Product <
-      /button> <
-      /div>
+  return ( 
+  
+  <div>
+    <div className = "row" >
+      <h1> Products </h1> 
+        <button type = "button" className = "primary"
+          onClick = {
+          createHandler } >Create Product 
+        </button> 
+    </div>
+
+    {
+      loadingDelete && <LoadingBox> </LoadingBox>} {
+      errorDelete && < MessageBox variant = "danger" > {
+        errorDelete
+      } </MessageBox>}
 
       {
-        loadingDelete && < LoadingBox > < /LoadingBox>} {
-            errorDelete && < MessageBox variant = "danger" > {
-              errorDelete
-            } < /MessageBox>}
-
-            {
-              loadingCreate && < LoadingBox > < /LoadingBox>} {
-                errorCreate && < MessageBox variant = "danger" > {
-                    errorCreate
-                  } < /MessageBox>} {
-                    loading ? ( <
-                      LoadingBox > < /LoadingBox>
-                    ) : error ? ( <
-                      MessageBox variant = "danger" > {
-                        error
-                      } < /MessageBox>
-                    ) : (
+        loadingCreate && < LoadingBox > </LoadingBox>} {
+        errorCreate && < MessageBox variant = "danger" > {
+          errorCreate
+        } </MessageBox>} {
+        loading ? ( <
+          LoadingBox > </LoadingBox>
+        ) : error ? ( <
+          MessageBox variant = "danger" > {
+            error
+          } </MessageBox>
+        ) : (
 
 
-                      <
-                      div >
-                      <
-                      ReactHTMLTableToExcel id = "test-table-xls-button"
-                      className = "download-table-xls-button primary"
-                      table = "table-to-xls"
-                      filename = "tablexls"
-                      sheet = "tablexls"
-                      tpe = "button"
-                      buttonText = "Download to Excel" / >
+    <div>
+          <ReactHTMLTableToExcel id = "test-table-xls-button"
+          className = "download-table-xls-button primary"
+          table = "table-to-xls"
+          filename = "tablexls"
+          sheet = "tablexls"
+          tpe = "button"
+          buttonText = "Download to Excel" />
 
 
-                      <
-                      table id = "table-to-xls"
-                      className = "table" >
-                      <
-                      thead >
-                      <
-                      tr >
-                      <
-                      th > NUFIBER CODE < /th> <
-                      th > NAME < /th> <
-                      th > PRICE < /th> <
-                      th > SYSTEM < /th> <
-                      th > ACTIONS < /th> <
-                      /tr> <
-                      /thead> <
-                      tbody > {
-                        products.map((product) => ( <
-                          tr key = {
-                            product._id
-                          } >
-                          <
-                          td > {
-                            product.code
-                          } < /td> <
-                          td > {
-                            product.name
-                          } < /td> <
-                          td > {
-                            product.price
-                          } < /td> <
-                          td > {
-                            product.system
-                          } < /td> <
-                          td >
-                          <
-                          button type = "button"
-                          className = "small"
-                          onClick = {
-                            () =>
-                            props.history.push(`/product/${product._id}/edit`)
-                          } >
-                          Edit <
-                          /button> <
-                          button type = "button"
-                          className = "small"
-                          onClick = {
-                            () => deleteHandler(product)
-                          } >
-                          Delete <
-                          /button> <
-                          /td> <
-                          /tr>
-                        ))
-                      } <
-                      /tbody> <
-                      /table> <
-                      /div>
-                    )
-                  } <
-                  /div>
-              );
-            }
+      <table id = "table-to-xls" className = "table" >
+        <thead>
+          <tr>
+            <th> IMAGE </th> 
+            <th> NUFIBER CODE </th> 
+            <th> NAME </th> 
+            <th> PRICE(ea) </th> 
+            <th> MSRP(ea) </th> 
+            <th> CASE QTY </th> 
+            <th> WEIGHT </th>
+            <th> DIMENSIONS </th> 
+            <th> SYSTEM </th> 
+            <th> ACTIONS </th> 
+          </tr> 
+        </thead> 
+        <tbody> {
+            products.map((product) => ( 
+          <tr key = {product._id} >
+              <td> <img
+                      src={product.image}
+                      alt={product.image}
+                      className="small"></img> 
+              </td> 
+              <td> {product.code} </td> 
+              <td> {product.name} </td> 
+              <td> ${product.price.toFixed(2)} </td>
+              <td> ${product.msrp.toFixed(2)} </td>
+              <td> {product.caseqty} /cs </td>
+              <td> {product.caseqty}lbs /cs </td>
+              <td> {product.dimension} </td>                
+              <td> {product.system} </td> 
+              <td> 
+                <button type = "button" className = "small" onClick = { () => props.history.push(`/product/${product._id}/edit`)} >Edit </button> 
+                <button type = "button" className = "small"onClick = { () => deleteHandler(product)} > Delete </button> 
+              </td> 
+          </tr>
+            ))
+          } 
+        </tbody> 
+        </table> 
+    </div>
+        )
+      } 
+      
+  </div>
+    );
+  }
