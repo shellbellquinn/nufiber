@@ -9,7 +9,7 @@ export default function PaymentMethodScreen(props) {
   if (!shippingAddress.address) {
     props.history.push('/shipping');
   }
-  const [paymentMethod, setPaymentMethod] = useState('PayPal');
+  const [paymentMethod, setPaymentMethod] = useState('invoice');
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
@@ -23,11 +23,11 @@ export default function PaymentMethodScreen(props) {
         <div>
           <h1>Payment Method</h1>
         </div>
-        <div>
-          <div>
+        {/* <div> */}
+          {/* <div>
             <input
               type="radio"
-              id="paypal"
+              id=""
               value="PayPal"
               name="paymentMethod"
               required
@@ -35,19 +35,30 @@ export default function PaymentMethodScreen(props) {
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
             <label htmlFor="paypal">PayPal</label>
-          </div>
-        </div>
+          </div> */}
+        {/* </div> */}
         <div>
           <div>
             <input
               type="radio"
-              id="stripe"
-              value="Stripe"
+              id="Quote"
+              value="Quote"
               name="paymentMethod"
               required
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
-            <label htmlFor="stripe">Invoice</label>
+            <label htmlFor="Quote">Generate Quote</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              id="Invoice"
+              value="Invoice"
+              name="paymentMethod"
+              required
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            ></input>
+            <label htmlFor="Quote">Invoice Me</label>
           </div>
         </div>
         <div>

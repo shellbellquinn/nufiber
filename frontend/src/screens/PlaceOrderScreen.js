@@ -128,7 +128,18 @@ export default function PlaceOrderScreen(props) {
                   className="primary block"
                   disabled={cart.cartItems.length === 0}
                 >
-                  Place Order
+                  Place Order/Send Me an Invoice
+                </button>
+              </li>
+
+              <li>
+                <button
+                  type="button"
+                  onClick={placeOrderHandler}
+                  className="primary block"
+                  disabled={cart.cartItems.length === 0}
+                >
+                  Download Quote as PDF
                 </button>
               </li>
               {loading && <LoadingBox></LoadingBox>}

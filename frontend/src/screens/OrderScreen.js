@@ -1,9 +1,10 @@
 import Axios from 'axios';
-import { PayPalButton } from 'react-paypal-button-v2';
+// import { PayPalButton } from 'react-paypal-button-v2';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
+import { detailsOrder } from '../actions/orderActions';
+// import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import {
@@ -16,19 +17,19 @@ export default function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
   const { order, loading, error } = orderDetails;
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  // const userSignin = useSelector((state) => state.userSignin);
+  // const { userInfo } = userSignin;
 
   const orderPay = useSelector((state) => state.orderPay);
   const {
-    loading: loadingPay,
-    error: errorPay,
+  //   loading: loadingPay,
+  //   error: errorPay,
     success: successPay,
   } = orderPay;
   const orderDeliver = useSelector((state) => state.orderDeliver);
   const {
-    loading: loadingDeliver,
-    error: errorDeliver,
+    // loading: loadingDeliver,
+    // error: errorDeliver,
     success: successDeliver,
   } = orderDeliver;
   const dispatch = useDispatch();
@@ -64,12 +65,12 @@ export default function OrderScreen(props) {
     }
   }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
 
-  const successPaymentHandler = (paymentResult) => {
-    dispatch(payOrder(order, paymentResult));
-  };
-  const deliverHandler = () => {
-    dispatch(deliverOrder(order._id));
-  };
+  // const successPaymentHandler = (paymentResult) => {
+  //   dispatch(payOrder(order, paymentResult));
+  // };
+  // const deliverHandler = () => {
+  //   dispatch(deliverOrder(order._id));
+  // };
 
   return loading ? (
     <LoadingBox></LoadingBox>
@@ -83,7 +84,7 @@ export default function OrderScreen(props) {
           <ul>
             <li>
               <div className="card card-body">
-                <h2>This one</h2>
+                <h2>Shipping Information</h2>
                 <p>
                   <strong>Name:</strong> {order.shippingAddress.fullName} <br />
                   <strong>Address: </strong> {order.shippingAddress.address},
@@ -180,7 +181,7 @@ export default function OrderScreen(props) {
                   </div>
                 </div>
               </li>
-              {!order.isPaid && (
+              {/* {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
                     <LoadingBox></LoadingBox>
@@ -189,17 +190,17 @@ export default function OrderScreen(props) {
                       {errorPay && (
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}
-                      {loadingPay && <LoadingBox></LoadingBox>}
+                      {loadingPay && <LoadingBox></LoadingBox>} */}
 
-                      <PayPalButton
+                      {/* <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}
-                      ></PayPalButton>
-                    </>
-                  )}
-                </li>
-              )}
-              {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                      ></PayPalButton> */}
+                    {/* </> */}
+              {/* //     )}
+              //   </li>
+              // )} */}
+              {/* {userInfo.isAdmin && order.isPaid && !order.isDelivered && (
                 <li>
                   {loadingDeliver && <LoadingBox></LoadingBox>}
                   {errorDeliver && (
@@ -213,7 +214,7 @@ export default function OrderScreen(props) {
                     Deliver Order
                   </button>
                 </li>
-              )}
+              )} */}
             </ul>
           </div>
         </div>
