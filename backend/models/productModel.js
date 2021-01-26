@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema(
     dimension: { type: String, required: true },
     type: { type: String, required: true },
     caseqty: { type: Number, required: true },
-
+    dupsystem: { type: String, required: false },
   },
   {
     timestamps: true,

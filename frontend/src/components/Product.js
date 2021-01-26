@@ -34,8 +34,13 @@ export default function Product(props) {
     
     
             <div className="row">
-              <Link to={`/search/sealed%20bucket`}>
+              <Link to={`/search/`+product.system}>
               <p>{product.system}</p>
+              </Link>
+            </div>
+            <div className="row">
+              <Link to={`/search/`+product.dupsystem}>
+              <p>{product.dupsystem}</p>
               </Link>
             </div>
         </div>

@@ -28,6 +28,7 @@ export const listProducts = ({
   min = 0,
   max = 0,
   code = '',
+  dupsystem = '',
   // rating = 0,
 }) => async (dispatch) => {
   dispatch({
@@ -35,7 +36,7 @@ export const listProducts = ({
   });
   try {
     const { data } = await Axios.get(
-      `/api/products?&name=${name}&system=${system}&min=${min}&max=${max}&order=${order}&code=${code}`
+      `/api/products?&name=${name}&system=${system}&min=${min}&max=${max}&order=${order}&code=${code}&dupsystem=${dupsystem}`
     );
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {

@@ -44,6 +44,16 @@ export default function ProductScreen(props) {
                   <b>{product.code}</b>
                 </li>
                 <li>
+                 <Link to={`/search/`+product.system}>
+                 <p>{product.system}</p>
+                 </Link>
+                </li>
+                <li>
+                 <Link to={`/search/`+product.dupsystem}>
+                 <p>{product.dupsystem}</p>
+                 </Link>
+                </li>
+                <li>
                   <b>Dimension:</b>{product.dimension}
                 </li>
                 <li>
