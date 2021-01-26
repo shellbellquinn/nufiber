@@ -48,6 +48,7 @@ export default function CartScreen(props) {
                       className="small"
                     ></img>
                   </div>
+                  <div>{item.code}</div>
                   <div className="min-30">
                     <Link to={`/product/${item.product}`}>{item.name}</Link>
                   </div>
@@ -86,7 +87,6 @@ export default function CartScreen(props) {
                     </select>
                   </div>
                   <div>${item.price}</div>
-                  <div>${item.code}</div>
                   <div> x {item.caseqty} per case</div>
                   
                   <div>
