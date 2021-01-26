@@ -4,7 +4,6 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "horku": "npm install && npm run-script build && npm start",
     "build": "cd ./frontend/ && npm install && npm run-script build",
     "start": "nodemon --watch backend --exec node --experimental-modules backend/server.js"
   },
