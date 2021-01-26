@@ -36,6 +36,7 @@ userRouter.post(
           _id: user._id,
           name: user.name,
           email: user.email,
+          company: user.company,
           isAdmin: user.isAdmin,
           // isSeller: user.isSeller,
           token: generateToken(user),
@@ -53,6 +54,7 @@ userRouter.post(
     const user = new User({
       name: req.body.name,
       email: req.body.email,
+      company: req.body.company,
       password: bcrypt.hashSync(req.body.password, 8),
     });
     const createdUser = await user.save();
@@ -86,6 +88,8 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.company = req.body.company || user.company;
+
       // if (user.isSeller) {
       //   user.seller.name = req.body.sellerName || user.seller.name;
       //   user.seller.logo = req.body.sellerLogo || user.seller.logo;
@@ -100,6 +104,7 @@ userRouter.put(
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
+        company: updatedUser.company,
         isAdmin: updatedUser.isAdmin,
         isSeller: user.isSeller,
         token: generateToken(updatedUser),
@@ -146,6 +151,7 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
+      user.company = req.body.company || user.company;
       // user.isSeller = req.body.isSeller || user.isSeller;
       user.isAdmin = req.body.isAdmin || user.isAdmin;
       const updatedUser = await user.save();

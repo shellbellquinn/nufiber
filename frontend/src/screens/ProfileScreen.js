@@ -8,6 +8,8 @@ import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
 export default function ProfileScreen() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
+
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -29,6 +31,8 @@ export default function ProfileScreen() {
     } else {
       setName(user.name);
       setEmail(user.email);
+      setCompany(user.company);
+
     }
   }, [dispatch, userInfo._id, user]);
   const submitHandler = (e) => {
@@ -42,6 +46,7 @@ export default function ProfileScreen() {
           userId: user._id,
           name,
           email,
+          company,
           password,
         })
       );
@@ -86,6 +91,16 @@ export default function ProfileScreen() {
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+              ></input>
+            </div>
+            <div>
+              <label htmlFor="company">Company</label>
+              <input
+                id="company"
+                type="company"
+                placeholder="Enter company"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
               ></input>
             </div>
             <div>

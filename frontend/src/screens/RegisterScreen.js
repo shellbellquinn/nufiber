@@ -8,6 +8,7 @@ import MessageBox from '../components/MessageBox';
 export default function RegisterScreen(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [company, setCompany] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
@@ -24,7 +25,7 @@ export default function RegisterScreen(props) {
     if (password !== confirmPassword) {
       alert('Password and confirm password are not match');
     } else {
-      dispatch(register(name, email, password));
+      dispatch(register(name, email, company, password));
     }
   };
   useEffect(() => {
@@ -58,6 +59,16 @@ export default function RegisterScreen(props) {
             placeholder="Enter email"
             required
             onChange={(e) => setEmail(e.target.value)}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="company">Company Name</label>
+          <input
+            type="company"
+            id="company"
+            placeholder="Enter company name"
+            required
+            onChange={(e) => setCompany(e.target.value)}
           ></input>
         </div>
         <div>

@@ -47,6 +47,7 @@ export default function UserListScreen(props) {
               <th>ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
+              <th>COMPANY</th>
               <th>IS ADMIN</th>
               <th>ACTIONS</th>
             </tr>
@@ -57,6 +58,7 @@ export default function UserListScreen(props) {
                 <td>{user._id}</td>
                 <td>{user.name}</td>
                 <td>{user.email}</td>
+                <td>{user.company}</td>
                 <td>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
                   <button
