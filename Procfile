@@ -1,1 +1,1 @@
-web: npm run-script horku
+web: node --experimental-modules backend/server.js
