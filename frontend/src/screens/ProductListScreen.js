@@ -1,5 +1,10 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {
+  useEffect
+} from 'react';
+import {
+  useDispatch,
+  useSelector
+} from 'react-redux';
 import {
   createProduct,
   deleteProduct,
@@ -11,11 +16,18 @@ import {
   PRODUCT_CREATE_RESET,
   PRODUCT_DELETE_RESET,
 } from '../constants/productConstants';
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
 
 export default function ProductListScreen(props) {
+
   // const sellerMode = props.match.path.indexOf('/seller') >= 0;
   const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
+  const {
+    loading,
+    error,
+    products
+  } = productList;
 
   const productCreate = useSelector((state) => state.productCreate);
   const {
@@ -32,17 +44,23 @@ export default function ProductListScreen(props) {
     success: successDelete,
   } = productDelete;
   const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {
+    userInfo
+  } = userSignin;
   const dispatch = useDispatch();
   useEffect(() => {
     if (successCreate) {
-      dispatch({ type: PRODUCT_CREATE_RESET });
+      dispatch({
+        type: PRODUCT_CREATE_RESET
+      });
       props.history.push(`/product/${createdProduct._id}/edit`);
     }
     if (successDelete) {
-      dispatch({ type: PRODUCT_DELETE_RESET });
+      dispatch({
+        type: PRODUCT_DELETE_RESET
+      });
     }
-    dispatch(listProducts({  }));
+    dispatch(listProducts({}));
     // seller: sellerMode ? userInfo._id : ''
   }, [
     createdProduct,
@@ -62,67 +80,114 @@ export default function ProductListScreen(props) {
   const createHandler = () => {
     dispatch(createProduct());
   };
-  return (
-    <div>
-      <div className="row">
-        <h1>Products</h1>
-        <button type="button" className="primary" onClick={createHandler}>
-          Create Product
-        </button>
-      </div>
 
-      {loadingDelete && <LoadingBox></LoadingBox>}
-      {errorDelete && <MessageBox variant="danger">{errorDelete}</MessageBox>}
 
-      {loadingCreate && <LoadingBox></LoadingBox>}
-      {errorCreate && <MessageBox variant="danger">{errorCreate}</MessageBox>}
-      {loading ? (
-        <LoadingBox></LoadingBox>
-      ) : error ? (
-        <MessageBox variant="danger">{error}</MessageBox>
-      ) : (
-        <table className="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>NAME</th>
-              <th>PRICE</th>
-              <th>SYSTEM</th>
-              <th>NUFIBER CODE</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product._id}>
-                <td>{product._id}</td>
-                <td>{product.name}</td>
-                <td>{product.price}</td>
-                <td>{product.system}</td>
-                <td>{product.code}</td>
-                <td>
-                  <button
-                    type="button"
-                    className="small"
-                    onClick={() =>
-                      props.history.push(`/product/${product._id}/edit`)
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    className="small"
-                    onClick={() => deleteHandler(product)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      )}
-    </div>
-  );
-}
+  return ( <
+      div >
+      <
+      div className = "row" >
+      <
+      h1 > Products < /h1> <
+      button type = "button"
+      className = "primary"
+      onClick = {
+        createHandler
+      } >
+      Create Product <
+      /button> <
+      /div>
+
+      {
+        loadingDelete && < LoadingBox > < /LoadingBox>} {
+            errorDelete && < MessageBox variant = "danger" > {
+              errorDelete
+            } < /MessageBox>}
+
+            {
+              loadingCreate && < LoadingBox > < /LoadingBox>} {
+                errorCreate && < MessageBox variant = "danger" > {
+                    errorCreate
+                  } < /MessageBox>} {
+                    loading ? ( <
+                      LoadingBox > < /LoadingBox>
+                    ) : error ? ( <
+                      MessageBox variant = "danger" > {
+                        error
+                      } < /MessageBox>
+                    ) : (
+
+
+                      <
+                      div >
+                      <
+                      ReactHTMLTableToExcel id = "test-table-xls-button"
+                      className = "download-table-xls-button primary"
+                      table = "table-to-xls"
+                      filename = "tablexls"
+                      sheet = "tablexls"
+                      tpe = "button"
+                      buttonText = "Download to Excel" / >
+
+
+                      <
+                      table id = "table-to-xls"
+                      className = "table" >
+                      <
+                      thead >
+                      <
+                      tr >
+                      <
+                      th > NUFIBER CODE < /th> <
+                      th > NAME < /th> <
+                      th > PRICE < /th> <
+                      th > SYSTEM < /th> <
+                      th > ACTIONS < /th> <
+                      /tr> <
+                      /thead> <
+                      tbody > {
+                        products.map((product) => ( <
+                          tr key = {
+                            product._id
+                          } >
+                          <
+                          td > {
+                            product.code
+                          } < /td> <
+                          td > {
+                            product.name
+                          } < /td> <
+                          td > {
+                            product.price
+                          } < /td> <
+                          td > {
+                            product.system
+                          } < /td> <
+                          td >
+                          <
+                          button type = "button"
+                          className = "small"
+                          onClick = {
+                            () =>
+                            props.history.push(`/product/${product._id}/edit`)
+                          } >
+                          Edit <
+                          /button> <
+                          button type = "button"
+                          className = "small"
+                          onClick = {
+                            () => deleteHandler(product)
+                          } >
+                          Delete <
+                          /button> <
+                          /td> <
+                          /tr>
+                        ))
+                      } <
+                      /tbody> <
+                      /table> <
+                      /div>
+                    )
+                  } <
+                  /div>
+              );
+            }

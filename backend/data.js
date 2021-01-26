@@ -131,13 +131,13 @@ const data = {
         dupsystem: ''
       },
       {
-        name: "18",
+        name: '18" White Pocket Cleaning Mop',
         system: 'Sealed Bucket (Pretreat) System',
         image: "/images/NFPKT-WHT.jpg",
         price: 5.92,
         msrp: 11.84,
         code: "NFPKT-WHT",
-        dimension: "18",
+        dimension: '18"x5"x6"',
         caseqty: 36,
         weight: 14,
         type: "Mops / Cloths / Pads",
