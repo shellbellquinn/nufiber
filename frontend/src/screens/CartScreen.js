@@ -86,6 +86,7 @@ export default function CartScreen(props) {
                     </select>
                   </div>
                   <div>${item.price}</div>
+                  <div>${item.code}</div>
                   <div> x {item.caseqty} per case</div>
                   
                   <div>

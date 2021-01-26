@@ -129,6 +129,7 @@ export default function OrderScreen(props) {
                             alt={item.name}
                             className="small"
                           ></img>
+                          <p>{item.code}</p>
                         </div>
                         <div className="min-30">
                           <Link to={`/product/${item.product}`}>
@@ -137,7 +138,7 @@ export default function OrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} cases ({item.caseqty} per case) x ${item.price} = ${(item.qty * item.caseqty * item.price).toFixed(2)}
                         </div>
                       </div>
                     </li>

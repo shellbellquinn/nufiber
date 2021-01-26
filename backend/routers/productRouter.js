@@ -26,10 +26,11 @@ productRouter.get(
 
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const caseqtyFilter = caseqty ? { caseqty: { $regex: caseqty, $options: 'i' } } : {};
+    const codeFilter = code ? { code: { $regex: code, $options: 'i' } } : {};
+
 
     // const sellerFilter = seller ? { seller } : {};
     const systemFilter = system ? { system: { $regex: system, $options: 'i'} } : {};
-    const codeFilter = code ? { code: { $regex: code, $options: 'i'} } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
     // const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
@@ -45,6 +46,7 @@ productRouter.get(
       // ...sellerFilter,
       ...nameFilter,
       ...caseqtyFilter,
+      ...codeFilter,
       ...systemFilter,
       ...priceFilter,
       ...codeFilter,
