@@ -10,6 +10,7 @@ productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
     const name = req.query.name || '';
+    const caseqty = req.query.caseqty || '';
     const system = req.query.system || '';
     // const seller = req.query.seller || '';
     const order = req.query.order || '';
@@ -24,6 +25,8 @@ productRouter.get(
     //     : 0;
 
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
+    const caseqtyFilter = caseqty ? { caseqty: { $regex: caseqty, $options: 'i' } } : {};
+
     // const sellerFilter = seller ? { seller } : {};
     const systemFilter = system ? { system: { $regex: system, $options: 'i'} } : {};
     const codeFilter = code ? { code: { $regex: code, $options: 'i'} } : {};
@@ -41,6 +44,7 @@ productRouter.get(
     const products = await Product.find({
       // ...sellerFilter,
       ...nameFilter,
+      ...caseqtyFilter,
       ...systemFilter,
       ...priceFilter,
       ...codeFilter,
@@ -108,7 +112,7 @@ productRouter.post(
       // rating: { type: Number, required: true },
       dimension: "TBD",
       type: "Replacements / Accessories",
-      qty: "TBD",
+      caseqty: 0,
     });
     const createdProduct = await product.save();
     res.send({ message: 'Product Created', product: createdProduct });
@@ -123,6 +127,7 @@ productRouter.put(
     const product = await Product.findById(productId);
     if (product) {
       product.name = req.body.name;
+      product.caseqty = req.body.caseqty;
       product.price = req.body.price;
       product.image = req.body.image;
       product.system = req.body.system;

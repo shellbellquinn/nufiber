@@ -16,7 +16,7 @@ export default function Product(props) {
 
         <div className="row">
           <div className="row">
-            <p><b>Quantity:</b> ${product.qty}</p>
+            <p><b>Quantity:</b> {product.caseqty} per case</p>
           </div>
             <div className="row">
               <p><b>Weight:</b> {product.weight}lbs</p>
@@ -25,10 +25,10 @@ export default function Product(props) {
 
           <div className="row">
             <div className="row">
-              <p><b>Dist Cost:</b> ${product.price}</p>
+              <p><b>Dist Cost:</b> ${product.price} each</p>
             </div>
             <div className="row">
-              <p><b>MSRP:</b> ${product.msrp}</p>
+              <p><b>MSRP:</b> ${product.msrp} each</p>
             </div>
           </div>
     

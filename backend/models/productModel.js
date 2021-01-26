@@ -15,7 +15,7 @@ const productSchema = new mongoose.Schema(
     // rating: { type: Number, required: true },
     dimension: { type: String, required: true },
     type: { type: String, required: true },
-    qty: { type: String, required: true },
+    caseqty: { type: Number, required: true },
 
   },
   {

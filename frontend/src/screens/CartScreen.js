@@ -25,6 +25,7 @@ export default function CartScreen(props) {
 
   const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
+    
   };
   return (
     <div className="row top">
@@ -57,7 +58,9 @@ export default function CartScreen(props) {
                         dispatch(
                           addToCart(item.product, Number(e.target.value))
                         )
+
                       }
+                      
                     >
                       <option>1</option>
                       <option>2</option>
@@ -83,6 +86,8 @@ export default function CartScreen(props) {
                     </select>
                   </div>
                   <div>${item.price}</div>
+                  <div> x {item.caseqty} per case</div>
+                  
                   <div>
                     <button
                       type="button"
@@ -103,7 +108,7 @@ export default function CartScreen(props) {
             <li>
               <h2>
                 Subtotal ({cartItems.reduce((a, c) => a + c.qty, 0)} items) : $
-                {cartItems.reduce((a, c) => a + c.price * c.qty, 0).toFixed(2)}
+                {cartItems.reduce((a, c) => a + c.price * c.qty * c.caseqty, 0).toFixed(2)}
               </h2>
             </li>
             <li>

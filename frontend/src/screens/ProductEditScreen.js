@@ -19,7 +19,8 @@ export default function ProductEditScreen(props) {
   // const [countInStock, setCountInStock] = useState('');
   const [dimension, setDimension] = useState('');
   const [type, setType] = useState('');
-  const [qty, setQty] = useState('');
+  const [caseqty, setCases] = useState('');
+
 
 
   const productDetails = useSelector((state) => state.productDetails);
@@ -47,12 +48,12 @@ export default function ProductEditScreen(props) {
       setSystem(product.system);
       setmsrp(product.msrp);
       setCode(product.code);
+      setCases(product.caseqty);
       setDescription(product.description);
       setWeight(product.weight);
       // setCountInStock(product.countInStock);
       setDimension(product.dimension);
       setType(product.type);
-      setQty(product.qty);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
   const submitHandler = (e) => {
@@ -65,13 +66,13 @@ export default function ProductEditScreen(props) {
         image,
         price,
         system,
+        caseqty,
         code,
         msrp,
         description,
         weight,
         dimension,
         type,
-        qty,
       })
     );
   };
@@ -228,12 +229,12 @@ export default function ProductEditScreen(props) {
               ></input>
             </div>
             <div>
-              <label htmlFor="qty">Quantany (ie: 36/cs)</label>
+              <label htmlFor="caseqty">Quantany (per case)</label>
               <input
-                id="qty"
-                type="text"
-                placeholder="Enter qty"
-                value={qty}
+                id="caseqty"
+                type="number"
+                placeholder="Enter cases qty"
+                value={caseqty}
                 onChange={(e) => setPrice(e.target.value)}
               ></input>
             </div>

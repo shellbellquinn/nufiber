@@ -9,7 +9,7 @@ const data = {
         msrp:  11.33,
         code: 'NuFiber',
         // rating: 5,
-        qty: "36/cs",
+        caseqty: 36,
         description: '18" Blue Pocket Mop color-coded Blue for General Purpose Cleaning. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times.',
       },
   ],

@@ -58,22 +58,22 @@ export default function ProductScreen(props) {
                   <li>
                     <div className="row">
                       <div>Distributor Price</div>
-                      <div className="price">${product.price}</div>
+                      <div className="price">${product.price} each</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
                       <div>Suggested MSRP</div>
-                      <div className="price">${product.msrp}</div>
+                      <div className="price">${product.msrp} each</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
                       <div>
-                          <li className="success">{product.weight}lbs</li>
+                          <li className="success">{product.weight}lbs per case</li>
                       </div>
                       <div>
-                          <li className="success">{product.qty}</li>
+                          <li className="success">{product.caseqty} per case </li>
                       </div>
                     </div>
                   </li>
@@ -81,7 +81,7 @@ export default function ProductScreen(props) {
                     <>
                       <li>
                         <div className="row">
-                          <div>Qty</div>
+                          <div>Cases</div>
                           <div>
                             <select
                               value={qty}
@@ -98,6 +98,7 @@ export default function ProductScreen(props) {
                           </div>
                         </div>
                       </li>
+                      <div className="price">${ qty * product.price} Total Price</div>
                       <li>
                         <button
                           onClick={addToCartHandler}
