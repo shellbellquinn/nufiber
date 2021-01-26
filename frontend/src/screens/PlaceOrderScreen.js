@@ -6,8 +6,16 @@ import CheckoutSteps from '../components/CheckoutSteps';
 import { ORDER_CREATE_RESET } from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
+import ReactDOM from "react-dom";
+import Pdf from "react-to-pdf";
+
+
 
 export default function PlaceOrderScreen(props) {
+  const ref = React.createRef();
+  const options = {
+      orientation: 'landscape',
+  };
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
     props.history.push('/payment');
@@ -25,16 +33,22 @@ export default function PlaceOrderScreen(props) {
   const placeOrderHandler = () => {
     dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
   };
+
   useEffect(() => {
     if (success) {
       props.history.push(`/order/${order._id}`);
       dispatch({ type: ORDER_CREATE_RESET });
     }
   }, [dispatch, order, props.history, success]);
+
+
+  
   return (
-    <div>
+    <div className='root'>
+    
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      <div className="row top">
+      
+      <div ref={ref} className="row top">
         <div className="col-2">
           <ul>
             <li>
@@ -133,14 +147,12 @@ export default function PlaceOrderScreen(props) {
               </li>
 
               <li>
-                <button
-                  type="button"
-                  onClick={placeOrderHandler}
-                  className="primary block"
-                  disabled={cart.cartItems.length === 0}
-                >
-                  Download Quote as PDF
-                </button>
+              <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
+                
+                  {({ toPdf }) => <button className="primary block" onClick={toPdf}>Download Quote as PDF</button>}
+             </Pdf>
+      
+                
               </li>
               {loading && <LoadingBox></LoadingBox>}
               {error && <MessageBox variant="danger">{error}</MessageBox>}
@@ -151,3 +163,6 @@ export default function PlaceOrderScreen(props) {
     </div>
   );
 }
+
+// const rootElement = document.getElementById("root");
+// ReactDOM.render(<PlaceOrderScreen />, rootElement);

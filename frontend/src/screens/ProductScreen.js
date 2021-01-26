@@ -98,7 +98,7 @@ export default function ProductScreen(props) {
                           </div>
                         </div>
                       </li>
-                      <div className="price">${ qty * product.price} Total Price</div>
+                      <div className="price">${(qty * product.price * product.caseqty).toFixed(2)} Total Price</div>
                       <li>
                         <button
                           onClick={addToCartHandler}
