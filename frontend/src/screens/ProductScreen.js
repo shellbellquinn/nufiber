@@ -68,13 +68,13 @@ export default function ProductScreen(props) {
                   <li>
                     <div className="row">
                       <div>Distributor Price</div>
-                      <div className="price">${product.price} each</div>
+                      <div className="price">${(product.price).toFixed(2)} each</div>
                     </div>
                   </li>
                   <li>
                     <div className="row">
                       <div>Suggested MSRP</div>
-                      <div className="price">${product.msrp} each</div>
+                      <div className="price">${(product.msrp).toFixed(2)} each</div>
                     </div>
                   </li>
                   <li>
