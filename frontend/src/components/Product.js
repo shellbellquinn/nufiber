@@ -14,12 +14,15 @@ export default function Product(props) {
             <h2>{product.name} | {product.code}</h2>
           </Link>
 
+            
+        
+
         <div className="row">
           <div className="row">
             <p><b>Quantity:</b> {product.caseqty} per case</p>
           </div>
             <div className="row">
-              <p><b>Weight:</b> {product.weight}lbs</p>
+              <p><b>Weight:</b> {product.weight}lbs</p>        
             </div>
           </div>
 
@@ -43,6 +46,7 @@ export default function Product(props) {
               <p>{product.dupsystem}</p>
               </Link>
             </div>
+
         </div>
     </div>
   );

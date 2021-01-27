@@ -59,6 +59,10 @@ export default function ProductScreen(props) {
                 <li>
                   <b>Description:</b>
                   <p>{product.description}</p>
+
+                  <Link to={`/search/`+product.producttype}>
+                 <p>{product.producttype}</p>
+                 </Link>
                 </li>
               </ul>
             </div>

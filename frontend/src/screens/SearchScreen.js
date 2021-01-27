@@ -17,14 +17,17 @@ export default function SearchScreen(props) {
   const { loading, error, products } = productList;
   let filteredProducts = products;
   if (products && term) {
+    console.log('term to lowercase is' + term.toLowerCase())
     const lowercaseTerm = term.toLowerCase();
+    console.log('lowercaseTerm is ' + term.toLowerCase())
+
     filteredProducts = term === '' ? products : products.filter(product => {
       return (
         product.name.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
         product.code.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
         product.system.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
         product.dupsystem.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
-        product.type.toLowerCase().indexOf(lowercaseTerm) !== -1 
+        product.producttype.toLowerCase().indexOf(lowercaseTerm) !== -1 
       )
     })    
   }

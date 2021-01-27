@@ -27,7 +27,7 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: '18" Blue Pocket Mop color-coded Blue for General Purpose Cleaning. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable blue H/D pocket back, and cut end Fringe.',
       dupsystem: ''
@@ -44,7 +44,7 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: '18" Green Pocket Mop color-coded Green for cleaning in Food Service areas. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable green H/D pocket back, and cut end Fringe.',
       dupsystem: ''
@@ -62,7 +62,7 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: '18" Red Pocket Mop color-coded Red for cleaning in Critical Touch Point areas. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable red H/D pocket back, and cut end Fringe.',
       dupsystem: '',
@@ -79,7 +79,7 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: '18" Pocket Mop color-coded Yellow. Constructed using corn rows for better cleaning and cut ends on fringe for better cleaning in corners. Launderable over 500 times. Features include: cut end pocket mops, bonded yarn, 4 center rows, durable red H/D pocket back, and cut end Fringe.',
       dupsystem: '',
@@ -96,7 +96,7 @@ const data = {
       dimension: '18"x15"x6',
       caseqty: 50,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: 'Economical low nap blue yarn pocket mop with gray pocket backing',
       dupsystem: '',
@@ -112,7 +112,7 @@ const data = {
       dimension: '21"x14"x9"',
       caseqty: 36,
       weight: 15,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Long loop L/L white pocket fin mop wit mesh back and preconditioned white microfiber yarn ",
       dupsystem: ''
@@ -127,7 +127,7 @@ const data = {
       dimension: '21"x14"x9"',
       caseqty: 36,
       weight: 15,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Pocket Scrubber mop with built in scrubber strips for hard to clean floors",
       dupsystem: ''
@@ -142,7 +142,7 @@ const data = {
       dimension: '18"x5"x6"',
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "18",
       dupsystem: ''
@@ -157,7 +157,7 @@ const data = {
       dimension: "26x13x23",
       caseqty: 5,
       weight: 18,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "6 gallon sealed bucket for charging flat mops. Capacity up to 30 pocket mops per charge. Array mops in bucket, charge them. Seal bucket with sealer lid and turn over. After a few minutes, turn upright and begin to clean using wet, but not dripping mops. ",
       dupsystem: ''
@@ -172,7 +172,7 @@ const data = {
       dimension: "N/A",
       caseqty: 4,
       weight: 0,
-      type: "Replacements / Accessories",
+      producttype: "Replacements / Accessories",
       countInStock: 20,
       description: "4 pack caster set for the 6 gallon mop bucket",
       dupsystem: ''
@@ -187,7 +187,7 @@ const data = {
       dimension: "26x13x23",
       caseqty: 5,
       weight: 18,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "6 gallon sealed bucket for charging flat mops. Capacity up to 30 pocket mops per charge. Array mops in bucket, charge them. Seal bucket with sealer lid and turn over. After a few minutes, turn upright and begin to clean using wet, but not dripping mops. ",
       dupsystem: ''
@@ -202,7 +202,7 @@ const data = {
       dimension: "N/A",
       caseqty: 1,
       weight: 1,
-      type: "Replacements / Accessories",
+      producttype: "Replacements / Accessories",
       countInStock: 20,
       description: "Blue Lid for SB6BLU (Lid Only)",
       dupsystem: ''
@@ -217,7 +217,7 @@ const data = {
       dimension: "26x13x23",
       caseqty: 5,
       weight: 18,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ''
@@ -232,7 +232,7 @@ const data = {
       dimension: "26x13x23",
       caseqty: 5,
       weight: 18,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ''
@@ -247,7 +247,7 @@ const data = {
       dimension: "10x10x14",
       caseqty: 5,
       weight: 6,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ""
@@ -262,7 +262,7 @@ const data = {
       dimension: "10x10x14",
       caseqty: 5,
       weight: 6,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ""
@@ -277,7 +277,7 @@ const data = {
       dimension: "10x10x14",
       caseqty: 5,
       weight: 6,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ""
@@ -292,7 +292,7 @@ const data = {
       dimension: "10x10x14",
       caseqty: 5,
       weight: 6,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Small bucket to measure proper quantity of cleaning solution to add to sealed bucket for charging flat mops. Bucket is narrower so mops stay in place when bucket is flipped. It also has measuring lines, and a convenient handle for pouring and transport",
       dupsystem: ""
@@ -307,7 +307,7 @@ const data = {
       dimension: '"6"x6"x2"',
       caseqty: 1,
       weight: 2,
-      type: "Replacements / Accessories",
+      producttype: "Replacements / Accessories",
       countInStock: 20,
       description: "Replacement lid for the 1.5 gallon chemical mix buckets",
       dupsystem: ""
@@ -322,7 +322,7 @@ const data = {
       dimension: "20x24x13",
       caseqty: 10,
       weight: 15,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Blue 3 gallon sealed bucket. ",
       dupsystem: ""
@@ -337,7 +337,7 @@ const data = {
       dimension: "20x24x13",
       caseqty: 10,
       weight: 15,
-      type: "Buckets",
+      producttype: "Buckets",
       countInStock: 20,
       description: "Gray 3 gallon sealed bucket. ",
       dupsystem: ""
@@ -352,7 +352,7 @@ const data = {
       dimension: "9x18x12",
       caseqty: 10,
       weight: 14,
-      type: "Frames / Handles",
+      producttype: "Frames / Handles",
       countInStock: 20,
       description: "Frame for Pocket Mops with swivel; hands-free pick up and removal of mops. Lightweight, secure connection with telescopic handle.",
       dupsystem: ""
@@ -367,7 +367,7 @@ const data = {
       dimension: "4x40x6",
       caseqty: 10,
       weight: 7,
-      type: "Frames / Handles",
+      producttype: "Frames / Handles",
       countInStock: 20,
       description: "Versatile lightweight aluminum telescopic handle that fits Pocket, Tab and Wall Wash frames. Can be adjusted to any operator height.",
       dupsystem: "Divided Bucket System"
@@ -382,7 +382,7 @@ const data = {
       dimension: "20''x10''x20''",
       caseqty: 100,
       weight: 25,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Economical Velcro wet mop. Color coded Blue for General Purpose Cleaning. Handles all the jobs, launderable.",
       dupsystem: ""
@@ -397,7 +397,7 @@ const data = {
       dimension: "20''x10''x20''",
       caseqty: 100,
       weight: 25,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Economical Velcro wet mop. Color coded green. Handles all  jobs, launderable.",
       dupsystem: ""
@@ -412,7 +412,7 @@ const data = {
       dimension: "20''x10''x20''",
       caseqty: 100,
       weight: 25,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Economical Velcro wet mop. Color coded red. Handles all  jobs, launderable.",
       dupsystem: ""
@@ -427,7 +427,7 @@ const data = {
       dimension: "20''x10''x20''",
       caseqty: 100,
       weight: 25,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Economical 19'' Velcro wet mop. Color coded blue. Handles all  jobs, launderable.",
       dupsystem: ""
@@ -442,7 +442,7 @@ const data = {
       dimension: "21''x14''x9''",
       caseqty: 36,
       weight: 15,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "White velcro with blue stripe rolled edge and thick microfiber cloth inner liner.",
       dupsystem: ""
@@ -457,7 +457,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "19'' Low Nap Blue ''K'' Style Velcro with horizontal scrubber strips",
       dupsystem: ""
@@ -472,7 +472,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mops designed with cut pile and firm backing to provide more soil absorption and easier use. Launderable and resilient. Color Coded Blue for General Purpose Cleaning",
       dupsystem: ""
@@ -487,7 +487,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mops designed with cut pile and firm backing to provide more soil absorption and easier use. Launderable and resilient. Color coded red for cleaning in critical care areas.",
       dupsystem: ""
@@ -502,7 +502,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mops designed with cut pile and firm backing to provide more soil absorption and easier use. Launderable and resilient. Color coded green for exclusive use in Food Service areas.",
       dupsystem: ""
@@ -517,7 +517,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mops designed with cut pile and firm backing to provide more soil absorption and easier use. Launderable and resilient.",
       dupsystem: ""
@@ -532,7 +532,7 @@ const data = {
       dimension: "20''x10''x10''",
       caseqty: 100,
       weight: 30,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Orange Microfiber Mop with Blue Scrub Strips",
       dupsystem: ""
@@ -547,7 +547,7 @@ const data = {
       dimension: "20''x6''x20''",
       caseqty: 50,
       weight: 20,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "19'' Fluffy White Microfiber 'K'' Style",
       dupsystem: ""
@@ -562,7 +562,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mop with long loops to reach uneven and difficult surfaces. The long loops provide better penetration of unevan floors, including grout line and dips. Launderable and resilient. Color coded blue for general purpose cleaning",
       dupsystem: ""
@@ -577,7 +577,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mop with long loops to reach uneven and difficult surfaces. The long loops provide better penetration of unevan floors, including grout line and dips. Launderable and resilient. Color coded green for food service cleaning",
       dupsystem: ""
@@ -592,7 +592,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile color coded velcro flat mop with long loops to reach uneven and difficult surfaces. The long loops provide better penetration of unevan floors, including grout line and dips. Launderable and resilient. Color coded red for critical touch cleaning",
       dupsystem: ""
@@ -607,7 +607,7 @@ const data = {
       dimension: "18''x15''x6''",
       caseqty: 36,
       weight: 14,
-      type: "Mops / Cloths / Pads",
+      producttype: "Mops / Cloths / Pads",
       countInStock: 20,
       description: "Versatile flat mop with long loops to reach uneven and difficult surfaces. The long loops provide better penetration of unevan floors, including grout line and dips. Launderable and resilient. Color coded red for critical touch cleaning",
       dupsystem: ""

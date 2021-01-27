@@ -10,6 +10,7 @@ productRouter.get(
   '/',
   expressAsyncHandler(async (req, res) => {
     const name = req.query.name || '';
+    const producttype = req.query.producttype || '';
     const caseqty = req.query.caseqty || '';
     const system = req.query.system || '';
     // const seller = req.query.seller || '';
@@ -27,6 +28,8 @@ productRouter.get(
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const caseqtyFilter = caseqty ? { caseqty: { $regex: caseqty, $options: 'i' } } : {};
     const codeFilter = code ? { code: { $regex: code, $options: 'i' } } : {};
+    const producttypeFilter = producttype ? { code: { $regex: producttype, $options: 'i' } } : {};
+
 
 
     // const sellerFilter = seller ? { seller } : {};
@@ -46,6 +49,7 @@ productRouter.get(
       // ...sellerFilter,
       ...nameFilter,
       ...caseqtyFilter,
+      ...producttypeFilter,
       ...codeFilter,
       ...systemFilter,
       ...priceFilter,
@@ -64,6 +68,14 @@ productRouter.get(
   expressAsyncHandler(async (req, res) => {
     const system = await Product.find().distinct('system');
     res.send(system);
+  })
+);
+
+productRouter.get(
+  '/producttype',
+  expressAsyncHandler(async (req, res) => {
+    const producttype = await Product.find().distinct('producttype');
+    res.send(producttype);
   })
 );
 
@@ -104,7 +116,6 @@ productRouter.post(
       price: 0,
       system: 'New and Miscellaneous Items',
       code: 'TBD',
-      msrp: 0,
       // rating: 0,
       // numReviews: 0,
       description: 'Coming soon',
@@ -113,7 +124,7 @@ productRouter.post(
       countInStock: 20,     
       // rating: { type: Number, required: true },
       dimension: "TBD",
-      type: "Replacements / Accessories",
+      producttype: "Replacements / Accessories",
       caseqty: 0,
     });
     const createdProduct = await product.save();
@@ -135,6 +146,7 @@ productRouter.put(
       product.system = req.body.system;
       product.code = req.body.code;
       product.msrp = req.body.msrp;
+      product.producttype = req.body.producttype;
       product.description = req.body.description;
       const updatedProduct = await product.save();
       res.send({ message: 'Product Updated', product: updatedProduct });

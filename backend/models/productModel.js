@@ -14,7 +14,7 @@ const productSchema = new mongoose.Schema(
     countInStock: { type: Number, required: true },     
     // rating: { type: Number, required: true },
     dimension: { type: String, required: true },
-    type: { type: String, required: true },
+    producttype: { type: String, required: false },
     caseqty: { type: Number, required: true },
     dupsystem: { type: String, required: false },
   },

@@ -18,7 +18,7 @@ export default function ProductEditScreen(props) {
   const [weight, setWeight] = useState('');
   // const [countInStock, setCountInStock] = useState('');
   const [dimension, setDimension] = useState('');
-  const [type, setType] = useState('');
+  const [producttype, setType] = useState('');
   const [caseqty, setCases] = useState('');
 
 
@@ -53,7 +53,7 @@ export default function ProductEditScreen(props) {
       setWeight(product.weight);
       // setCountInStock(product.countInStock);
       setDimension(product.dimension);
-      setType(product.type);
+      setType(product.producttype);
     }
   }, [product, dispatch, productId, successUpdate, props.history]);
   const submitHandler = (e) => {
@@ -72,7 +72,7 @@ export default function ProductEditScreen(props) {
         description,
         weight,
         dimension,
-        type,
+        producttype,
       })
     );
   };
