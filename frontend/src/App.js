@@ -149,9 +149,101 @@ function App() {
                     {c}
                   </Link>
                 </li>
-              ))
+              ))  
             )}
           </ul>
+
+          <ul className="systems">
+            <li>
+              <strong>Product Category</strong>
+              <button
+                onClick={() => setSidebarIsOpen(false)}
+                className="close-sidebar"
+                type="button"
+              >
+                <i className="fa fa-close"></i>
+              </button>
+            </li>
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+          
+                <li>
+                  <Link
+                    to={`/search/buckets`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    Buckets
+                  </Link>
+                </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+          
+                <li>
+                  <Link
+                    to={`/search/Mops`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    Mops / Cloths / Pads
+                  </Link>
+                </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+          
+                <li>
+                  <Link
+                    to={`/search/Carts`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    Carts
+                  </Link>
+                </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+          
+                <li>
+                  <Link
+                    to={`/search/Frames`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    Frames / Handles
+                  </Link>
+                </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+          
+                <li>
+                  <Link
+                    to={`/search/Replacements`}
+                    onClick={() => setSidebarIsOpen(false)}
+                  >
+                    Replacements / Accessories
+                  </Link>
+                </li>
+            )}
+            
+          </ul>
+
+          
+
         </aside>
         <main>
           <Route path="/cart/:id?" component={CartScreen}></Route>

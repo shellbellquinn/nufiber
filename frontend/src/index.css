@@ -186,7 +186,7 @@ aside ul {
 aside li {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
+  padding: .2rem;
 }
 button.close-sidebar {
   padding: 0.3rem 0.8rem;

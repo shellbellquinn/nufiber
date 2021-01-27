@@ -23,7 +23,8 @@ export default function SearchScreen(props) {
         product.name.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
         product.code.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
         product.system.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
-        product.dupsystem.toLowerCase().indexOf(lowercaseTerm) !== -1 
+        product.dupsystem.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
+        product.type.toLowerCase().indexOf(lowercaseTerm) !== -1 
       )
     })    
   }
