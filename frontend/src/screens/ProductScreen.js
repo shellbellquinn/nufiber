@@ -60,8 +60,6 @@ export default function ProductScreen(props) {
                   <b>Description:</b>
                   <p>{product.description}</p>
 
-                 <p>{product.producttype}</p>
-
                 </li>
               </ul>
             </div>
