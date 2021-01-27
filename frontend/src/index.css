@@ -186,7 +186,7 @@ aside ul {
 aside li {
   display: flex;
   justify-content: space-between;
-  padding: .2rem;
+  padding: .rem;
 }
 button.close-sidebar {
   padding: 0.3rem 0.8rem;
@@ -201,9 +201,10 @@ img.small {
   width: 100%;
 }
 img.medium {
-  max-width: 29rem;
-  height: 30rem;
-  margin-left: 15%;
+  max-height: 20rem;
+  max-width: 30rem;
+  margin-left: 5%;
+  padding: 10%;
 }
 img.large {
   width: 70%;
