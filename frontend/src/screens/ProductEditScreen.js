@@ -182,7 +182,8 @@ export default function ProductEditScreen(props) {
               <label htmlFor="system">System</label>       
               <div>
                <select id="system" onChange={(e) => setSystem(e.target.value)}>
-                  <option value="Sealed Bucket (Pretreat) System">Sealed Bucket (Pretreat) System</option>
+                  <option value="New and Miscellaneous Items">New and Miscellaneous Items</option>
+                  <option value='Sealed Bucket (Pretreat) System'>Sealed Bucket (Pretreat) System</option>
                   <option value="Divided Bucket System">Divided Bucket System</option>
                   <option value="Double Bucket and Trolley Systems">Double Bucket and Trolley Systems</option>
                   <option value="Floor Finish Applicator Systems">Floor Finish Applicator Systems</option>
@@ -193,10 +194,26 @@ export default function ProductEditScreen(props) {
                   <option value="Module Cart and Accessories">Module Cart and Accessories</option>
                   <option value="Specialty Items">Specialty Items</option>
                   <option value="Disposable Microfiber">Disposable Microfiber</option>
-                  <option value="New and Miscellaneous Items">New and Miscellaneous Items</option>
                </select>
               </div>
             </div>
+
+            <div>
+              <label htmlFor="producttype">Type of Product</label>       
+              <div>
+               <select id="producttype" onChange={(e) => setType(e.target.value)}>
+                  <option value="Mops / Cloths / Pads">Mops / Cloths / Pads</option>
+                  <option value='Buckets'>Buckets</option>
+                  <option value="Carts">Carts</option>
+                  <option value="Frames / Handles">Frames / Handles</option>
+                  <option value="Dusters">Dusters</option>
+                  <option value="Replacements / Accessories">Replacements / Accessories</option>
+               </select>
+              </div>  
+            </div>
+
+
+
             <div>
               <label htmlFor="description">Description</label>
               <textarea
