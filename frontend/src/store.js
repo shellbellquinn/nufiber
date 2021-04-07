@@ -44,7 +44,7 @@ const initialState = {
     paymentMethod: 'Invoice',
   },
 };
-const reducer = combineReducers({
+export const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,

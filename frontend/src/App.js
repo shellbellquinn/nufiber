@@ -57,7 +57,7 @@ function App() {
               className="open-sidebar"
               onClick={() => setSidebarIsOpen(true)}
             >
-              <i className="fa fa-bars"></i>
+              <i className="fa fa-bars"/>
             </button>
             <Link className="brand" to="/">
               NuFiber
@@ -66,9 +66,9 @@ function App() {
           <div>
             <Route
               render={({ history }) => (
-                <SearchBox history={history}></SearchBox>
+                <SearchBox history={history}/>
               )}
-            ></Route>
+            />
           </div>
           <div>
             <Link to="/cart">
@@ -80,7 +80,7 @@ function App() {
             {userInfo ? (
               <div className="dropdown">
                 <Link to="#">
-                  {userInfo.name} <i className="fa fa-caret-down"></i>{' '}
+                  {userInfo.name} <i className="fa fa-caret-down"/>{' '}
                 </Link>
                 <ul className="dropdown-content">
                   <li>
@@ -103,7 +103,7 @@ function App() {
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
-                  Admin <i className="fa fa-caret-down"></i>
+                  Admin <i className="fa fa-caret-down"/>
                 </Link>
                 <ul className="dropdown-content">
                   {/* <li>
