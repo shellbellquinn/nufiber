@@ -35,7 +35,7 @@ export const listProducts = ({
   dispatch({ type: PRODUCT_LIST_REQUEST });
   try {
     const userInfo = getState().userInfo;
-    console.log("UserInfo {}", userInfo);
+    // console.log("UserInfo {}", userInfo);
     const headers = userInfo ? {
       headers: {Authorization: `Bearer ${userInfo.token}`},
     } : {}

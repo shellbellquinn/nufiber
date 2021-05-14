@@ -11,6 +11,8 @@ export default function RegisterScreen(props) {
   const [company, setCompany] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [role, setRole] = useState('');
+
 
   const redirect = props.location.search
     ? props.location.search.split('=')[1]
@@ -24,7 +26,11 @@ export default function RegisterScreen(props) {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert('Password and confirm password are not match');
-    } else {
+    }
+    else if (role !== "8765") {
+      alert('The unique ID does not match our records, please email michelle.quinn@nuancesolutions.com for an ID or continue to browse as a guest');
+    }
+    else {
       dispatch(register(name, email, company, password));
     }
   };
@@ -89,6 +95,16 @@ export default function RegisterScreen(props) {
             placeholder="Enter confirm password"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
+          ></input>
+        </div>
+        <div>
+          <label htmlFor="confirmPassword">User Number</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Enter the unique ID that Nuance provided you to see pricing"
+            required
+            onChange={(e) => setRole(e.target.value)}
           ></input>
         </div>
         <div>

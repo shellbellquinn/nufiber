@@ -6,7 +6,7 @@ html {
 body {
     margin: 0;
     height: 100vh;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     font-family: Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -65,8 +65,10 @@ h1 {
 }
 
 h2 {
-    font-size: 1.6rem;
-    padding: 1rem 0;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-block-start: 0;
+    margin-block-end: .2em; 
 }
 
 a {
@@ -227,6 +229,19 @@ button.close-sidebar {
     padding: 0.3rem 0.8rem;
 }
 
+.imgWrapper {
+    width: 10rem;
+    height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    flex-direction: row;
+    margin-left: 30%;
+
+   
+}
+
 /* Image */
 img {
     border-radius: 0.5rem;
@@ -238,10 +253,16 @@ img.small {
 }
 
 img.medium {
-    max-height: 20rem;
-    max-width: 30rem;
-    margin-left: 5%;
-    padding: 10%;
+    max-width: 10rem;
+    max-height: 15rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    flex-direction: row;
+
+
+   
 }
 
 img.large {
@@ -255,6 +276,7 @@ img.large {
     background-color: #f8f8f8;
     border-radius: 0.5rem;
     margin: 1rem;
+    max-width: 30rem;
 }
 
 .card-body {
