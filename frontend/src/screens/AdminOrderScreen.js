@@ -1,13 +1,13 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { deliverOrder, payOrder } from '../actions/orderActions';
+import {useDispatch, useSelector} from 'react-redux';
+import {deliverOrder, payOrder} from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
 
 export default function OrderScreen(props) {
   const orderDetails = useSelector((state) => state.orderDetails);
-  const { order, loading, error } = orderDetails;
+  const {order, loading, error} = orderDetails;
 
 
   // const orderPay = useSelector((state) => state.orderPay);
@@ -24,17 +24,17 @@ export default function OrderScreen(props) {
   // } = orderDeliver;
   const dispatch = useDispatch();
   // useEffect(() => {
-    // const addPayPalScript = async () => {
-    //   const { data } = await Axios.get('/api/config/paypal');
-    //   const script = document.createElement('script');
-    //   script.type = 'text/javascript';
-    //   script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
-    //   script.async = true;
-    //   script.onload = () => {
-    //     setSdkReady(true);
-    //   };
-    //   document.body.appendChild(script);
-    // };
+  // const addPayPalScript = async () => {
+  //   const { data } = await Axios.get('/api/config/paypal');
+  //   const script = document.createElement('script');
+  //   script.type = 'text/javascript';
+  //   script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+  //   script.async = true;
+  //   script.onload = () => {
+  //     setSdkReady(true);
+  //   };
+  //   document.body.appendChild(script);
+  // };
   //   if (
   //     !order ||
   //     successPay ||
@@ -64,8 +64,7 @@ export default function OrderScreen(props) {
 
   return loading ? (
 
-   
-    
+
     <LoadingBox></LoadingBox>
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
@@ -75,29 +74,29 @@ export default function OrderScreen(props) {
         <div className="col-2">
           <ul>
             <li>
-            <button
-               type="button"
-               className="primary block"
-               onClick={deliverHandler}
-               >
-                 Mark as Delivered
-            </button>
+              <button
+                type="button"
+                className="primary block"
+                onClick={deliverHandler}
+              >
+                Mark as Delivered
+              </button>
             </li>
             <li>
-                      <button
-                        type="button"
-                        className="primary block"
-                        onClick={successPaymentHandler}
-                      >
-                        Mark as Paid
-                      </button>
-                  
-                </li>
-              
-        
-            </ul>
-          </div>
+              <button
+                type="button"
+                className="primary block"
+                onClick={successPaymentHandler}
+              >
+                Mark as Paid
+              </button>
+
+            </li>
+
+
+          </ul>
         </div>
       </div>
+    </div>
   );
 }

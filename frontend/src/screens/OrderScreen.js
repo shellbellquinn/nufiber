@@ -1,35 +1,30 @@
 import Axios from 'axios';
 // import { PayPalButton } from 'react-paypal-button-v2';
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { detailsOrder } from '../actions/orderActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {detailsOrder} from '../actions/orderActions';
 // import { deliverOrder, detailsOrder, payOrder } from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import {
-  ORDER_DELIVER_RESET,
-  ORDER_PAY_RESET,
-} from '../constants/orderConstants';
+import {ORDER_DELIVER_RESET, ORDER_PAY_RESET,} from '../constants/orderConstants';
 import Pdf from "react-to-pdf";
 
 
 export default function OrderScreen(props) {
   const ref = React.createRef();
   const options = {
-      orientation: 'landscape',
+    orientation: 'landscape',
   };
   const orderId = props.match.params.id;
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
-  const { order, loading, error } = orderDetails;
-  // const userSignin = useSelector((state) => state.userSignin);
-  // const { userInfo } = userSignin;
+  const {order, loading, error} = orderDetails;
 
   const orderPay = useSelector((state) => state.orderPay);
   const {
-  //   loading: loadingPay,
-  //   error: errorPay,
+    //   loading: loadingPay,
+    //   error: errorPay,
     success: successPay,
   } = orderPay;
   const orderDeliver = useSelector((state) => state.orderDeliver);
@@ -41,7 +36,7 @@ export default function OrderScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     const addPayPalScript = async () => {
-      const { data } = await Axios.get('/api/config/paypal');
+      const {data} = await Axios.get('/api/config/paypal');
       const script = document.createElement('script');
       script.type = 'text/javascript';
       script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
@@ -57,8 +52,8 @@ export default function OrderScreen(props) {
       successDeliver ||
       (order && order._id !== orderId)
     ) {
-      dispatch({ type: ORDER_PAY_RESET });
-      dispatch({ type: ORDER_DELIVER_RESET });
+      dispatch({type: ORDER_PAY_RESET});
+      dispatch({type: ORDER_DELIVER_RESET});
       dispatch(detailsOrder(orderId));
     } else {
       if (!order.isPaid) {
@@ -92,7 +87,7 @@ export default function OrderScreen(props) {
               <div className="card card-body">
                 <h2>Shipping Information</h2>
                 <p>
-                  <strong>Name:</strong> {order.shippingAddress.fullName} <br />
+                  <strong>Name:</strong> {order.shippingAddress.fullName} <br/>
                   <strong>Address: </strong> {order.shippingAddress.address},
                   {order.shippingAddress.city},{' '}
                   {order.shippingAddress.postalCode},
@@ -144,7 +139,8 @@ export default function OrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} cases ({item.caseqty} per case) x ${item.price} = ${(item.qty * item.caseqty * item.price).toFixed(2)}
+                          {item.qty} cases ({item.caseqty} per case) x ${item.price} =
+                          ${(item.qty * item.caseqty * item.price).toFixed(2)}
                         </div>
                       </div>
                     </li>
@@ -189,9 +185,9 @@ export default function OrderScreen(props) {
                 </div>
               </li>
               <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
-                
-                {({ toPdf }) => <button className="primary block" onClick={toPdf}>Download Order as PDF</button>}
-           </Pdf>
+
+                {({toPdf}) => <button className="primary block" onClick={toPdf}>Download Order as PDF</button>}
+              </Pdf>
               {/* {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
@@ -203,11 +199,11 @@ export default function OrderScreen(props) {
                       )}
                       {loadingPay && <LoadingBox></LoadingBox>} */}
 
-                      {/* <PayPalButton
+              {/* <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}
                       ></PayPalButton> */}
-                    {/* </> */}
+              {/* </> */}
               {/* //     )}
               //   </li>
               // )} */}

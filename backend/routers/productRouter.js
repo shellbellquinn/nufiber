@@ -2,51 +2,36 @@ import express from 'express';
 import expressAsyncHandler from 'express-async-handler';
 import data from '../data.js';
 import Product from '../models/productModel.js';
-import { isAdmin, isAuth } from '../utils.js';
+import {isAdmin, isAuth, userInfo} from '../utils.js';
 
 const productRouter = express.Router();
 
 productRouter.get(
   '/',
+  userInfo,
   expressAsyncHandler(async (req, res) => {
     const name = req.query.name || '';
     const producttype = req.query.producttype || '';
     const caseqty = req.query.caseqty || '';
     const system = req.query.system || '';
-    // const seller = req.query.seller || '';
     const order = req.query.order || '';
     const code = req.query.code || '';
-    const min =
-      req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
-    const max =
-      req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
-    // const rating =
-    //   req.query.rating && Number(req.query.rating) !== 0
-    //     ? Number(req.query.rating)
-    //     : 0;
-
+    const min = req.query.min && Number(req.query.min) !== 0 ? Number(req.query.min) : 0;
+    const max = req.query.max && Number(req.query.max) !== 0 ? Number(req.query.max) : 0;
     const nameFilter = name ? { name: { $regex: name, $options: 'i' } } : {};
     const caseqtyFilter = caseqty ? { caseqty: { $regex: caseqty, $options: 'i' } } : {};
     const codeFilter = code ? { code: { $regex: code, $options: 'i' } } : {};
     const producttypeFilter = producttype ? { code: { $regex: producttype, $options: 'i' } } : {};
-
-
-
-    // const sellerFilter = seller ? { seller } : {};
     const systemFilter = system ? { system: { $regex: system, $options: 'i'} } : {};
     const priceFilter = min && max ? { price: { $gte: min, $lte: max } } : {};
-    // const ratingFilter = rating ? { rating: { $gte: rating } } : {};
     const sortOrder =
       order === 'lowest'
         ? { price: 1 }
         : order === 'highest'
         ? { price: -1 }
-        // : order === 'toprated'
-        // ? { rating: -1 }
         : { _id: -1 };
 
     const products = await Product.find({
-      // ...sellerFilter,
       ...nameFilter,
       ...caseqtyFilter,
       ...producttypeFilter,
@@ -54,11 +39,15 @@ productRouter.get(
       ...systemFilter,
       ...priceFilter,
       ...codeFilter,
-      // ...ratingFilter,
-    })
-      .populate()
-      .sort(sortOrder)
-      .catch(err => console.error(err));
+    }).sort(sortOrder).catch(err => console.error(err));
+
+    if (!req.user) {
+        for(const i in products) {
+            delete products[i]._doc.price;
+            delete products[i]._doc.msrp;
+        }
+    }
+
     res.send(products);
   })
 );
@@ -96,6 +85,8 @@ productRouter.get(
       // 'seller',
       // 'seller.name seller.logo seller.rating seller.numReviews'
     );
+
+
     if (product) {
       res.send(product);
     } else {

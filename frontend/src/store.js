@@ -1,6 +1,6 @@
-import { createStore, compose, applyMiddleware, combineReducers } from 'redux';
+import {applyMiddleware, combineReducers, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import { cartReducer } from './reducers/cartReducers';
+import {cartReducer} from './reducers/cartReducers';
 import {
   orderCreateReducer,
   orderDeleteReducer,
@@ -11,11 +11,11 @@ import {
   orderPayReducer,
 } from './reducers/orderReducers';
 import {
-  productSystemListReducer,
   productCreateReducer,
   productDeleteReducer,
   productDetailsReducer,
   productListReducer,
+  productSystemListReducer,
   productUpdateReducer,
 } from './reducers/productReducers';
 import {
@@ -29,11 +29,9 @@ import {
 } from './reducers/userReducers';
 
 const initialState = {
-  userSignin: {
-    userInfo: localStorage.getItem('userInfo')
-      ? JSON.parse(localStorage.getItem('userInfo'))
-      : null,
-  },
+  userInfo: localStorage.getItem('userInfo')
+    ? JSON.parse(localStorage.getItem('userInfo'))
+    : null,
   cart: {
     cartItems: localStorage.getItem('cartItems')
       ? JSON.parse(localStorage.getItem('cartItems'))
@@ -44,11 +42,11 @@ const initialState = {
     paymentMethod: 'Invoice',
   },
 };
-const reducer = combineReducers({
+export const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
   cart: cartReducer,
-  userSignin: userSigninReducer,
+  userInfo: userSigninReducer,
   userRegister: userRegisterReducer,
   orderCreate: orderCreateReducer,
   orderDetails: orderDetailsReducer,

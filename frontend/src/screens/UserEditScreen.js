@@ -1,11 +1,9 @@
-import React from 'react';
-import { useEffect } from 'react';
-import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { detailsUser, updateUser } from '../actions/userActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {detailsUser, updateUser} from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { USER_UPDATE_RESET } from '../constants/userConstants';
+import {USER_UPDATE_RESET} from '../constants/userConstants';
 
 export default function UserEditScreen(props) {
   const userId = props.match.params.id;
@@ -15,7 +13,7 @@ export default function UserEditScreen(props) {
   const [isAdmin, setIsAdmin] = useState(false);
 
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const {loading, error, user} = userDetails;
 
   const userUpdate = useSelector((state) => state.userUpdate);
   const {
@@ -27,7 +25,7 @@ export default function UserEditScreen(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     if (successUpdate) {
-      dispatch({ type: USER_UPDATE_RESET });
+      dispatch({type: USER_UPDATE_RESET});
       props.history.push('/userlist');
     }
     if (!user) {
@@ -43,7 +41,7 @@ export default function UserEditScreen(props) {
   const submitHandler = (e) => {
     e.preventDefault();
     // dispatch update user
-    dispatch(updateUser({ _id: userId, name, email, company, isAdmin }));
+    dispatch(updateUser({_id: userId, name, email, company, isAdmin}));
   };
   return (
     <div>
@@ -56,7 +54,7 @@ export default function UserEditScreen(props) {
           )}
         </div>
         {loading ? (
-          <LoadingBox />
+          <LoadingBox/>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (

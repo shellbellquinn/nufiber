@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import {Roles} from "./models/userModel.js";
 
 const data = {
   users: [{
@@ -15,6 +16,14 @@ const data = {
       password: bcrypt.hashSync('1234', 8),
       isAdmin: false,
     },
+    {
+      name: 'Luke',
+      email: 'luke@dowell.dev',
+      company: 'Bad Grades LLC',
+      password: bcrypt.hashSync('1234', 8),
+      isAdmin: true,
+      role: Roles.ADMIN
+    }
   ],
   products: [{
       name: 'Blue Cut End Pocket Mop',

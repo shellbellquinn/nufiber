@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { detailsUser, updateUserProfile } from '../actions/userActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {detailsUser, updateUserProfile} from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { USER_UPDATE_PROFILE_RESET } from '../constants/userConstants';
+import {USER_UPDATE_PROFILE_RESET} from '../constants/userConstants';
 
 export default function ProfileScreen() {
   const [name, setName] = useState('');
@@ -13,10 +13,9 @@ export default function ProfileScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const userInfo = useSelector((state) => state.userInfo);
   const userDetails = useSelector((state) => state.userDetails);
-  const { loading, error, user } = userDetails;
+  const {loading, error, user} = userDetails;
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const {
     success: successUpdate,
@@ -26,7 +25,7 @@ export default function ProfileScreen() {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!user) {
-      dispatch({ type: USER_UPDATE_PROFILE_RESET });
+      dispatch({type: USER_UPDATE_PROFILE_RESET});
       dispatch(detailsUser(userInfo._id));
     } else {
       setName(user.name);
@@ -122,7 +121,7 @@ export default function ProfileScreen() {
               ></input>
             </div>
             <div>
-              <label />
+              <label/>
               <button className="primary" type="submit">
                 Update
               </button>

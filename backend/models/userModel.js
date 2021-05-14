@@ -1,5 +1,10 @@
 import mongoose from 'mongoose';
 
+export const Roles = {
+    ADMIN: "Admin",
+    USER: "User",
+}
+
 const userSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -7,6 +12,15 @@ const userSchema = new mongoose.Schema(
     company: { type: String, required: true },
     password: { type: String, required: true },
     isAdmin: { type: Boolean, default: false, required: true },
+    role: { type: String, required: true, default: Roles.USER },
+    pricing: {
+        universalModifier: { type: Number, required: true, default: 100 },
+        itemOverrides: [{
+            productCode: { type: String, required: true },
+            price: { type: Number, required: true}
+        }]
+    }
+
     // isSeller: { type: Boolean, default: false, required: true },
     // seller: {
     //   name: String,
@@ -20,5 +34,6 @@ const userSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
 const User = mongoose.model('User', userSchema);
 export default User;

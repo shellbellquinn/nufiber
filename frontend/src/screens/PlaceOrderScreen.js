@@ -1,26 +1,25 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { createOrder } from '../actions/orderActions';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {createOrder} from '../actions/orderActions';
 import CheckoutSteps from '../components/CheckoutSteps';
-import { ORDER_CREATE_RESET } from '../constants/orderConstants';
+import {ORDER_CREATE_RESET} from '../constants/orderConstants';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Pdf from "react-to-pdf";
 
 
-
 export default function PlaceOrderScreen(props) {
   const ref = React.createRef();
   const options = {
-      orientation: 'landscape',
+    orientation: 'landscape',
   };
   const cart = useSelector((state) => state.cart);
   if (!cart.paymentMethod) {
     props.history.push('/payment');
   }
   const orderCreate = useSelector((state) => state.orderCreate);
-  const { loading, success, error, order } = orderCreate;
+  const {loading, success, error, order} = orderCreate;
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
   cart.itemsPrice = toPrice(
     cart.cartItems.reduce((a, c) => a + c.qty * c.price * c.caseqty, 0)
@@ -30,23 +29,22 @@ export default function PlaceOrderScreen(props) {
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const dispatch = useDispatch();
   const placeOrderHandler = () => {
-    dispatch(createOrder({ ...cart, orderItems: cart.cartItems }));
+    dispatch(createOrder({...cart, orderItems: cart.cartItems}));
   };
 
   useEffect(() => {
     if (success) {
       props.history.push(`/order/${order._id}`);
-      dispatch({ type: ORDER_CREATE_RESET });
+      dispatch({type: ORDER_CREATE_RESET});
     }
   }, [dispatch, order, props.history, success]);
 
 
-  
   return (
     <div className='root'>
-    
+
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
-      
+
       <div ref={ref} className="row top">
         <div className="col-2">
           <ul>
@@ -54,7 +52,7 @@ export default function PlaceOrderScreen(props) {
               <div className="card card-body">
                 <h2>Shipping</h2>
                 <p>
-                  <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
+                  <strong>Name:</strong> {cart.shippingAddress.fullName} <br/>
                   <strong>Address: </strong> {cart.shippingAddress.address},
                   {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}
                   ,{cart.shippingAddress.country}
@@ -82,7 +80,7 @@ export default function PlaceOrderScreen(props) {
                             alt={item.name}
                             className="small"
                           ></img>
-                        <p>{item.code}</p>
+                          <p>{item.code}</p>
 
                         </div>
                         <div className="min-30">
@@ -92,7 +90,8 @@ export default function PlaceOrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} cases ({item.caseqty} per case) x ${item.price} = ${item.qty * item.caseqty * item.price}
+                          {item.qty} cases ({item.caseqty} per case) x ${item.price} =
+                          ${item.qty * item.caseqty * item.price}
                         </div>
                       </div>
                     </li>
@@ -148,12 +147,12 @@ export default function PlaceOrderScreen(props) {
               </li>
 
               <li>
-              <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
-                
-                  {({ toPdf }) => <button className="primary block" onClick={toPdf}>Download Quote as PDF</button>}
-             </Pdf>
-      
-                
+                <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
+
+                  {({toPdf}) => <button className="primary block" onClick={toPdf}>Download Quote as PDF</button>}
+                </Pdf>
+
+
               </li>
               {loading && <LoadingBox></LoadingBox>}
               {error && <MessageBox variant="danger">{error}</MessageBox>}
