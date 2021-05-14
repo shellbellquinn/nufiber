@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
-import { listProducts } from '../actions/productActions';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useParams} from 'react-router-dom';
+import {listProducts} from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Product from '../components/Product';
@@ -14,7 +14,7 @@ export default function SearchScreen(props) {
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
   // const regex = new RegExp(`!/${term}/i`);
-  const { loading, error, products } = productList;
+  const {loading, error, products} = productList;
   let filteredProducts = products;
   if (products && term) {
     console.log('term to lowercase is' + term.toLowerCase())
@@ -23,13 +23,13 @@ export default function SearchScreen(props) {
 
     filteredProducts = term === '' ? products : products.filter(product => {
       return (
-        product.name.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
-        product.code.toLowerCase().indexOf(lowercaseTerm) !== -1 || 
+        product.name.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
+        product.code.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
         product.system.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
         product.dupsystem.toLowerCase().indexOf(lowercaseTerm) !== -1 ||
-        product.producttype.toLowerCase().indexOf(lowercaseTerm) !== -1 
+        product.producttype.toLowerCase().indexOf(lowercaseTerm) !== -1
       )
-    })    
+    })
   }
 
   const productSystemList = useSelector((state) => state.productSystemList);
@@ -54,7 +54,7 @@ export default function SearchScreen(props) {
           <div>{filteredProducts.length} Results</div>
         )}
         <div>
-          
+
           <ul
             value={''}
             onChange={(e) => {

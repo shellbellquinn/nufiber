@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { register } from '../actions/userActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {register} from '../actions/userActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -17,7 +17,7 @@ export default function RegisterScreen(props) {
     : '/';
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { userInfo, loading, error } = userRegister;
+  const {userInfo, loading, error} = userRegister;
 
   const dispatch = useDispatch();
   const submitHandler = (e) => {
@@ -92,13 +92,13 @@ export default function RegisterScreen(props) {
           ></input>
         </div>
         <div>
-          <label />
+          <label/>
           <button className="primary" type="submit">
             Register
           </button>
         </div>
         <div>
-          <label />
+          <label/>
           <div>
             Already have an account?{' '}
             <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>

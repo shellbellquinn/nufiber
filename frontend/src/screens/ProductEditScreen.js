@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import Axios from 'axios';
-import { detailsProduct, updateProduct } from '../actions/productActions';
+import {detailsProduct, updateProduct} from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import { PRODUCT_UPDATE_RESET } from '../constants/productConstants';
+import {PRODUCT_UPDATE_RESET} from '../constants/productConstants';
 
 export default function ProductEditScreen(props) {
   const productId = props.match.params.id;
@@ -16,15 +16,13 @@ export default function ProductEditScreen(props) {
   const [code, setCode] = useState('');
   const [description, setDescription] = useState('');
   const [weight, setWeight] = useState('');
-  // const [countInStock, setCountInStock] = useState('');
   const [dimension, setDimension] = useState('');
   const [producttype, setType] = useState('');
   const [caseqty, setCases] = useState('');
 
 
-
   const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const {loading, error, product} = productDetails;
 
   const productUpdate = useSelector((state) => state.productUpdate);
   const {
@@ -39,7 +37,7 @@ export default function ProductEditScreen(props) {
       props.history.push('/productlist');
     }
     if (!product || product._id !== productId || successUpdate) {
-      dispatch({ type: PRODUCT_UPDATE_RESET });
+      dispatch({type: PRODUCT_UPDATE_RESET});
       dispatch(detailsProduct(productId));
     } else {
       setName(product.name);
@@ -79,15 +77,14 @@ export default function ProductEditScreen(props) {
   const [loadingUpload, setLoadingUpload] = useState(false);
   const [errorUpload, setErrorUpload] = useState('');
 
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const userInfo = useSelector((state) => state.userInfo);
   const uploadFileHandler = async (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
     bodyFormData.append('image', file);
     setLoadingUpload(true);
     try {
-      const { data } = await Axios.post('/api/uploads', bodyFormData, {
+      const {data} = await Axios.post('/api/uploads', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${userInfo.token}`,
@@ -107,10 +104,10 @@ export default function ProductEditScreen(props) {
         <div>
           <h1>Edit Product {productId}</h1>
         </div>
-        {loadingUpdate && <LoadingBox></LoadingBox>}
+        {loadingUpdate && <LoadingBox/>}
         {errorUpdate && <MessageBox variant="danger">{errorUpdate}</MessageBox>}
         {loading ? (
-          <LoadingBox></LoadingBox>
+          <LoadingBox/>
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
@@ -123,7 +120,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="code">NuFiber Code</label>
@@ -133,7 +130,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter NuFiber Code"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="price">Distributor Price</label>
@@ -143,7 +140,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter price"
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="msrp">Suggested MSRP</label>
@@ -153,7 +150,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter Suggested MSRP"
                 value={msrp}
                 onChange={(e) => setmsrp(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="image">Image</label>
@@ -163,7 +160,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter image"
                 value={image}
                 onChange={(e) => setImage(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="imageFile">Image File</label>
@@ -172,46 +169,46 @@ export default function ProductEditScreen(props) {
                 id="imageFile"
                 label="Choose Image"
                 onChange={uploadFileHandler}
-              ></input>
-              {loadingUpload && <LoadingBox></LoadingBox>}
+              />
+              {loadingUpload && <LoadingBox/>}
               {errorUpload && (
                 <MessageBox variant="danger">{errorUpload}</MessageBox>
               )}
             </div>
             <div>
-              <label htmlFor="system">System</label>       
+              <label htmlFor="system">System</label>
               <div>
-               <select id="system" onChange={(e) => setSystem(e.target.value)}>
+                <select id="system" onChange={(e) => setSystem(e.target.value)}>
                   <option value="New and Miscellaneous Items">New and Miscellaneous Items</option>
                   <option value='Sealed Bucket (Pretreat) System'>Sealed Bucket (Pretreat) System</option>
                   <option value="Divided Bucket System">Divided Bucket System</option>
                   <option value="Double Bucket and Trolley Systems">Double Bucket and Trolley Systems</option>
                   <option value="Floor Finish Applicator Systems">Floor Finish Applicator Systems</option>
-                  <option value="Walls, Counters, Desks, Windows Systems">Walls, Counters, Desks, Windows Systems</option>
+                  <option value="Walls, Counters, Desks, Windows Systems">Walls, Counters, Desks, Windows Systems
+                  </option>
                   <option value="Color Coded Microfiber Cloths">Color Coded Microfiber Cloths</option>
                   <option value="High Duster Tools">High Duster Tools</option>
                   <option value="Dust Mops">Dust Mops</option>
                   <option value="Module Cart and Accessories">Module Cart and Accessories</option>
                   <option value="Specialty Items">Specialty Items</option>
                   <option value="Disposable Microfiber">Disposable Microfiber</option>
-               </select>
+                </select>
               </div>
             </div>
 
             <div>
-              <label htmlFor="producttype">Type of Product</label>       
+              <label htmlFor="producttype">Type of Product</label>
               <div>
-               <select id="producttype" onChange={(e) => setType(e.target.value)}>
+                <select id="producttype" onChange={(e) => setType(e.target.value)}>
                   <option value="Mops / Cloths / Pads">Mops / Cloths / Pads</option>
                   <option value='Buckets'>Buckets</option>
                   <option value="Carts">Carts</option>
                   <option value="Frames / Handles">Frames / Handles</option>
                   <option value="Dusters">Dusters</option>
                   <option value="Replacements / Accessories">Replacements / Accessories</option>
-               </select>
-              </div>  
+                </select>
+              </div>
             </div>
-
 
 
             <div>
@@ -223,7 +220,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-              ></textarea>
+              />
             </div>
             <div>
               <label htmlFor="weight">Weight (in lbs)</label>
@@ -233,7 +230,7 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter weight"
                 value={weight}
                 onChange={(e) => setPrice(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
               <label htmlFor="dimension">Dimensions</label>
@@ -243,21 +240,19 @@ export default function ProductEditScreen(props) {
                 placeholder="Enter dimension"
                 value={dimension}
                 onChange={(e) => setPrice(e.target.value)}
-              ></input>
+              />
             </div>
             <div>
-              <label htmlFor="caseqty">Quantany (per case)</label>
+              <label htmlFor="caseqty">Quantity (per case)</label>
               <input
                 id="caseqty"
                 type="number"
                 placeholder="Enter cases qty"
                 value={caseqty}
                 onChange={(e) => setPrice(e.target.value)}
-              ></input>
+              />
             </div>
-
             <div>
-              <label></label>
               <button className="primary" type="submit">
                 Update
               </button>

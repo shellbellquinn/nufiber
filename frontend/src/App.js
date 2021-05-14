@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
-import { signout } from './actions/userActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {BrowserRouter, Link, Route} from 'react-router-dom';
+import {signout} from './actions/userActions';
 import AdminRoute from './components/AdminRoute';
 import PrivateRoute from './components/PrivateRoute';
 import CartScreen from './screens/CartScreen';
@@ -23,16 +23,15 @@ import UserListScreen from './screens/UserListScreen';
 import UserEditScreen from './screens/UserEditScreen';
 import SearchBox from './components/SearchBox';
 import SearchScreen from './screens/SearchScreen';
-import { listProductSystems } from './actions/productActions';
+import {listProductSystems} from './actions/productActions';
 import LoadingBox from './components/LoadingBox';
 import MessageBox from './components/MessageBox';
 
 function App() {
   const cart = useSelector((state) => state.cart);
   const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
-  const { cartItems } = cart;
-  const userSignin = useSelector((state) => state.userSignin);
-  const { userInfo } = userSignin;
+  const {cartItems} = cart;
+  const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   const signoutHandler = () => {
     dispatch(signout());
@@ -65,7 +64,7 @@ function App() {
           </div>
           <div>
             <Route
-              render={({ history }) => (
+              render={({history}) => (
                 <SearchBox history={history}/>
               )}
             />
@@ -99,7 +98,7 @@ function App() {
             ) : (
               <Link to="/signin">Sign In</Link>
             )}
-  
+
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
                 <Link to="#admin">
@@ -132,11 +131,11 @@ function App() {
                 className="close-sidebar"
                 type="button"
               >
-                <i className="fa fa-close"></i>
+                <i className="fa fa-close"/>
               </button>
             </li>
             {loadingSystems ? (
-              <LoadingBox></LoadingBox>
+              <LoadingBox/>
             ) : errorSystems ? (
               <MessageBox variant="danger">{errorSystems}</MessageBox>
             ) : (
@@ -149,7 +148,7 @@ function App() {
                     {c}
                   </Link>
                 </li>
-              ))  
+              ))
             )}
           </ul>
 
@@ -164,85 +163,84 @@ function App() {
                 <i className="fa fa-close"></i>
               </button>
             </li>
-              {loadingSystems ? (
-                <LoadingBox></LoadingBox>
-              ) : errorSystems ? (
-                <MessageBox variant="danger">{errorSystems}</MessageBox>
-              ) : (
-            
-                  <li>
-                    <Link
-                      to={`/search/buckets`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      Buckets
-                    </Link>
-                  </li>
-              )}
-              {loadingSystems ? (
-                <LoadingBox></LoadingBox>
-              ) : errorSystems ? (
-                <MessageBox variant="danger">{errorSystems}</MessageBox>
-              ) : (
-            
-                  <li>
-                    <Link
-                      to={`/search/Mops`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      Mops / Cloths / Pads
-                    </Link>
-                  </li>
-              )}
-              {loadingSystems ? (
-                <LoadingBox></LoadingBox>
-              ) : errorSystems ? (
-                <MessageBox variant="danger">{errorSystems}</MessageBox>
-              ) : (
-            
-                  <li>
-                    <Link
-                      to={`/search/Carts`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      Carts
-                    </Link>
-                  </li>
-              )}
-              {loadingSystems ? (
-                <LoadingBox></LoadingBox>
-              ) : errorSystems ? (
-                <MessageBox variant="danger">{errorSystems}</MessageBox>
-              ) : (
-            
-                  <li>
-                    <Link
-                      to={`/search/Frames`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      Frames / Handles
-                    </Link>
-                  </li>
-              )}
-              {loadingSystems ? (
-                <LoadingBox></LoadingBox>
-              ) : errorSystems ? (
-                <MessageBox variant="danger">{errorSystems}</MessageBox>
-              ) : (
-            
-                  <li>
-                    <Link
-                      to={`/search/Replacements`}
-                      onClick={() => setSidebarIsOpen(false)}
-                    >
-                      Replacements / Accessories
-                    </Link>
-                  </li>
-              )}
-              
-            </ul>
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
 
-          
+              <li>
+                <Link
+                  to={`/search/buckets`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Buckets
+                </Link>
+              </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Mops`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Mops / Cloths / Pads
+                </Link>
+              </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Carts`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Carts
+                </Link>
+              </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Frames`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Frames / Handles
+                </Link>
+              </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Replacements`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Replacements / Accessories
+                </Link>
+              </li>
+            )}
+
+          </ul>
+
 
         </aside>
         <main>
@@ -279,17 +277,17 @@ function App() {
             component={OrderListScreen}
             exact
           ></AdminRoute>
-           <AdminRoute
+          <AdminRoute
             path="/order/:id/admin"
             component={AdminOrderScreen}
-            exact   
+            exact
           ></AdminRoute>
           <AdminRoute path="/userlist" component={UserListScreen}></AdminRoute>
           <AdminRoute
             path="/user/:id/edit"
             component={UserEditScreen}
           ></AdminRoute>
-         
+
 
           <Route path="/" component={HomeScreen} exact></Route>
         </main>

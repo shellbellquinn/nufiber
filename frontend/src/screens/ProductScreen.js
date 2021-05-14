@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { detailsProduct } from '../actions/productActions';
+import React, {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {detailsProduct} from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 
@@ -10,7 +10,7 @@ export default function ProductScreen(props) {
   const productId = props.match.params.id;
   const [qty, setQty] = useState(1);
   const productDetails = useSelector((state) => state.productDetails);
-  const { loading, error, product } = productDetails;
+  const {loading, error, product} = productDetails;
 
   useEffect(() => {
     dispatch(detailsProduct(productId));
@@ -44,14 +44,14 @@ export default function ProductScreen(props) {
                   <b>{product.code}</b>
                 </li>
                 <li>
-                 <Link to={`/search/`+product.system}>
-                 <p>{product.system}</p>
-                 </Link>
+                  <Link to={`/search/` + product.system}>
+                    <p>{product.system}</p>
+                  </Link>
                 </li>
                 <li>
-                 <Link to={`/search/`+product.dupsystem}>
-                 <p>{product.dupsystem}</p>
-                 </Link>
+                  <Link to={`/search/` + product.dupsystem}>
+                    <p>{product.dupsystem}</p>
+                  </Link>
                 </li>
                 <li>
                   <b>Dimension:</b>{product.dimension}
@@ -81,10 +81,10 @@ export default function ProductScreen(props) {
                   <li>
                     <div className="row">
                       <div>
-                          <li className="success">{product.weight}lbs per case</li>
+                        <li className="success">{product.weight}lbs per case</li>
                       </div>
                       <div>
-                          <li className="success">{product.caseqty} per case </li>
+                        <li className="success">{product.caseqty} per case</li>
                       </div>
                     </div>
                   </li>

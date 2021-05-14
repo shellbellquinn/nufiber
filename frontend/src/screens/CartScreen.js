@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addToCart, removeFromCart } from '../actions/cartActions';
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {addToCart, removeFromCart} from '../actions/cartActions';
 import MessageBox from '../components/MessageBox';
 
 export default function CartScreen(props) {
@@ -10,7 +10,7 @@ export default function CartScreen(props) {
     ? Number(props.location.search.split('=')[1])
     : 1;
   const cart = useSelector((state) => state.cart);
-  const { cartItems, error } = cart;
+  const {cartItems, error} = cart;
   const dispatch = useDispatch();
   useEffect(() => {
     if (productId) {
@@ -25,7 +25,7 @@ export default function CartScreen(props) {
 
   const checkoutHandler = () => {
     props.history.push('/signin?redirect=shipping');
-    
+
   };
   return (
     <div className="row top">
@@ -61,7 +61,7 @@ export default function CartScreen(props) {
                         )
 
                       }
-                      
+
                     >
                       <option>1</option>
                       <option>2</option>
@@ -83,12 +83,12 @@ export default function CartScreen(props) {
                       <option>18</option>
                       <option>19</option>
                       <option>20</option>
-                      
+
                     </select>
                   </div>
                   <div>${item.price}</div>
                   <div> x {item.caseqty} per case</div>
-                  
+
                   <div>
                     <button
                       type="button"
