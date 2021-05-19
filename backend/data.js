@@ -1641,7 +1641,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Blue 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU"
+      description: "Blue 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU",
+      dupsystem: ''
   },
   {
       name: "16'' Pastel Green Microfiber Cloth",
@@ -1655,7 +1656,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Green 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU"
+      description: "Green 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU",
+      dupsystem: ''
   },
   {
       name: "16'' Pastel Red Microfiber Cloth",
@@ -1669,7 +1671,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Pink 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU"
+      description: "Pink 300gsm 16\" Cloth with Dark, Round Corners and Preconditioned Microfiber Material 80/20 RTU",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Blue Microfiber Cloth",
@@ -1683,7 +1686,8 @@ const data = {
       weight: "18",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Blue 16\" Cloth with Round Corners"
+      description: "Solid Blue 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Green Microfiber Cloth",
@@ -1697,7 +1701,8 @@ const data = {
       weight: "18",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Green 16\" Cloth with Round Corners"
+      description: "Solid Green 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Yellow Microfiber Cloth",
@@ -1711,7 +1716,8 @@ const data = {
       weight: "18",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Yellow 16\" Cloth with Round Corners"
+      description: "Solid Yellow 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Red Microfiber Cloth",
@@ -1725,7 +1731,8 @@ const data = {
       weight: "18",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Red 16\" Cloth with Round Corners"
+      description: "Solid Red 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Orange Microfiber Cloth",
@@ -1739,7 +1746,8 @@ const data = {
       weight: "18",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Orange 16\" Cloth with Round Corners"
+      description: "Solid Orange 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Lime Microfiber Cloth",
@@ -1753,7 +1761,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Lime 16\" Cloth with Round Corners"
+      description: "Solid Lime 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Solid Purple Microfiber Cloth",
@@ -1767,7 +1776,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Purple 16\" Cloth with Round Corners"
+      description: "Solid Purple 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Industrial Brown Microfiber Cloth",
@@ -1781,7 +1791,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Brown 16\" Cloth with Round Corners"
+      description: "Solid Brown 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Industrial Grey Microfiber Cloth",
@@ -1795,7 +1806,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Grey 16\" Cloth with Round Corners"
+      description: "Solid Grey 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Industrial Black Microfiber Cloth",
@@ -1809,7 +1821,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid Black 16\" Cloth with Round Corners"
+      description: "Solid Black 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
   {
       name: "16'' Industrial White Microfiber Cloth",
@@ -1823,7 +1836,8 @@ const data = {
       weight: "19",
       producttype: "Mops / Cloths / Pads",
       countInStock: "20",
-      description: "Solid White 16\" Cloth with Round Corners"
+      description: "Solid White 16\" Cloth with Round Corners",
+      dupsystem: ''
   },
 
 

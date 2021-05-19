@@ -47,7 +47,6 @@ productRouter.get(
             delete products[i]._doc.msrp;
         }
     }
-    
 
     res.send(products);
   })
