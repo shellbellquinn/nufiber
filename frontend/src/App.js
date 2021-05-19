@@ -17,6 +17,7 @@ import ProfileScreen from './screens/ProfileScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import ShippingAddressScreen from './screens/ShippingAddressScreen';
 import SigninScreen from './screens/SigninScreen';
+import ProductExportScreen from './screens/ProductExportScreen';
 import ProductEditScreen from './screens/ProductEditScreen';
 import OrderListScreen from './screens/OrderListScreen';
 import UserListScreen from './screens/UserListScreen';
@@ -84,6 +85,9 @@ function App() {
                 <ul className="dropdown-content">
                   <li>
                     <Link to="/profile">User Profile</Link>
+                  </li>
+                  <li>
+                    <Link to="/list">Product List</Link>
                   </li>
                   <li>
                     <Link to="/orderhistory">Order History</Link>
@@ -252,6 +256,7 @@ function App() {
             exact
           ></Route>
           <Route path="/signin" component={SigninScreen}></Route>
+          <Route path="/list" component={ProductExportScreen}></Route>
           <Route path="/register" component={RegisterScreen}></Route>
           <Route path="/shipping" component={ShippingAddressScreen}></Route>
           <Route path="/payment" component={PaymentMethodScreen}></Route>

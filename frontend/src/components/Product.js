@@ -8,17 +8,17 @@ export default function Product(props) {
   if (`${product.price}` === "undefined" ) {
     return (
     <div key={product._id} className="card">
-      <Link to={`/product/${product._id}`}>
+      
       <div className="imgWrapper">
         <img className="medium" src={product.image} alt={product.name}/>
        </div> 
-      </Link>
+      
 
       <div className="card-body">
-        <Link to={`/product/${product._id}`}>
+      
           <h2>{product.name} </h2>
           <h2>{product.code}</h2>
-        </Link>
+        
 
         <div className="row">
           <div className="row">

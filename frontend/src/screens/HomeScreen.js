@@ -14,7 +14,12 @@ export default function HomeScreen(props) {
 
   const {
     wallSystem = 'walls',
-    sealedSystem = 'sealed'
+    sealedSystem = 'sealed',
+    newSystem = 'new',
+    dividedSystem = 'divided',
+    doubleSystem = 'double',
+    floorSystem = 'floor',
+
   } = useParams();
   const dispatch = useDispatch();
   const productList = useSelector((state) => state.productList);
@@ -22,21 +27,51 @@ export default function HomeScreen(props) {
   const {loading, error, products} = productList;
   let wallProducts = products;
   let sealedProducts = products;
+  let newProducts = products;
+  let dividedProducts = products;
+  let doubleProducts = products;
+  let floorProducts = products;
   if (products && wallSystem) {
-    const lowercasewallSystem = wallSystem.toLowerCase();
     wallProducts = wallSystem === '' ? products : products.filter(product => {
       return (
-        product.system.toLowerCase().indexOf(lowercasewallSystem) !== -1 
+        product.system.toLowerCase().indexOf(wallSystem) !== -1 
+      )
+    })
+  }
+  if (products && doubleSystem) {
+    doubleProducts = doubleSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(doubleSystem) !== -1 
+      )
+    })
+  }
+  if (products && floorSystem) {
+    floorProducts = floorSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(floorSystem) !== -1 
+      )
+    })
+  }
+  if (products && dividedSystem) {
+    dividedProducts = dividedSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(dividedSystem) !== -1 
       )
     })
   }
   if (products && sealedSystem) {
-    const lowercasesealedSystem = sealedSystem.toLowerCase();
     sealedProducts = sealedSystem === '' ? products : products.filter(product => {
       return (
-        product.system.toLowerCase().indexOf(lowercasesealedSystem) !== -1 
+        product.system.toLowerCase().indexOf(sealedSystem) !== -1 
       )
     })
+  }  
+    if (products && newSystem) {
+      newProducts = newSystem === '' ? products : products.filter(product => {
+        return (
+          product.system.toLowerCase().indexOf(newSystem) !== -1 
+        )
+      })
   }
 
 
@@ -74,6 +109,46 @@ export default function HomeScreen(props) {
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
             <>
+              {sealedProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Sealed Bucket (Pretreat) System</h1>
+              <div className="row center">
+                {sealedProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {dividedProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Divided Bucket System</h1>
+              <div className="row center">
+                {dividedProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {doubleProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Double Bucket System</h1>
+              <div className="row center">
+                {doubleProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {floorProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Floor Finish Applicator Systems</h1>
+              <div className="row center">
+                {floorProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
               {wallProducts.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
@@ -84,12 +159,12 @@ export default function HomeScreen(props) {
                 ))}
               </div>
 
-              {sealedProducts.length === 0 && (
+              {newProducts.length === 0 && (
                 <MessageBox>No Product Found</MessageBox>
               )}
-              <h1>Sealed Bucket (Pretreat) System</h1>
+              <h1>New and Miscellaneous Items</h1>
               <div className="row center">
-                {sealedProducts.map((product) => (
+                {newProducts.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>
@@ -101,4 +176,3 @@ export default function HomeScreen(props) {
     </div>
   );
 } 
-

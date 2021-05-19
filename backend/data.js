@@ -184,7 +184,7 @@ const data = {
       producttype: "Replacements / Accessories",
       countInStock: 20,
       description: "4 pack caster set for the 6 gallon mop bucket",
-      dupsystem: ''
+      dupsystem: 'New and Miscellaneous Items'
     },
     {
       name: "Gray 6 Gallon Mop Bucket with Lid",
