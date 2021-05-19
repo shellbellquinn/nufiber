@@ -53,20 +53,20 @@ export default function SearchScreen(props) {
         ) : (
           <div>{filteredProducts.length} Results</div>
         )}
-        {/* <div>
+        <div>
 
           <ul
             value={''}
             onChange={(e) => {
               props.history.push(`/search/${term}`);
             }}
-          > */}
+          >
             {/* <option value="newest">Newest Arrivals</option>
             <option value="lowest">Price: Low to High</option>
             <option value="highest">Price: High to Low</option>
             <option value="toprated">Avg. Customer Reviews</option> */}
-          {/* </ul> */}
-        {/* </div> */}
+          </ul>
+        </div>
       </div>
       <div className="row top">
         <div className="col-1">
