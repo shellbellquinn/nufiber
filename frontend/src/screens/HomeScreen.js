@@ -21,6 +21,8 @@ export default function HomeScreen(props) {
     floorSystem = 'floor',
     clothSystem = 'cloth',
     dustSystem = 'dust ',
+    ModularSystem = 'modular',
+    specialSystem = "special"
 
 
   } = useParams();
@@ -36,11 +38,27 @@ export default function HomeScreen(props) {
   let floorProducts = products;
   let clothProducts = products;
   let dustProducts = products;
+  let ModularProducts = products;
+  let specialProducts = products;
 
   if (products && wallSystem) {
     wallProducts = wallSystem === '' ? products : products.filter(product => {
       return (
         product.system.toLowerCase().indexOf(wallSystem) !== -1 
+      )
+    })
+  }
+  if (products && specialSystem) {
+    specialProducts = specialSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(specialSystem) !== -1 
+      )
+    })
+  }
+  if (products && ModularSystem) {
+    ModularProducts = ModularSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(ModularSystem) !== -1 
       )
     })
   }
@@ -196,6 +214,26 @@ export default function HomeScreen(props) {
               <h1>Dust Mops</h1>
               <div className="row center">
                 {dustProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {ModularProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Modular Cart</h1>
+              <div className="row center">
+                {ModularProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {specialProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Specialty Items</h1>
+              <div className="row center">
+                {specialProducts.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>

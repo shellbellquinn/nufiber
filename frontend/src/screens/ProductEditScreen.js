@@ -189,7 +189,7 @@ export default function ProductEditScreen(props) {
                   <option value="Color Coded Microfiber Cloths">Color Coded Microfiber Cloths</option>
                   <option value="High Duster Tools">High Duster Tools</option>
                   <option value="Dust Mops">Dust Mops</option>
-                  <option value="Module Cart and Accessories">Module Cart and Accessories</option>
+                  <option value="Modular Cart and Accessories">Modular Cart and Accessories</option>
                   <option value="Specialty Items">Specialty Items</option>
                   <option value="Disposable Microfiber">Disposable Microfiber</option>
                 </select>

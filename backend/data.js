@@ -2590,7 +2590,7 @@ const data = {
 },
 {
   name: "Open Modular Cart",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CART100.jpg",
   price: "188.65",
   msrp: "377.30",
@@ -2605,7 +2605,7 @@ const data = {
 },
 {
   name: "Locking roller top",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-ROLLER-TOP.jpg",
   price: "71.50",
   msrp: "143.00",
@@ -2620,7 +2620,7 @@ const data = {
 },
 {
   name: "Tray with wheels",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA102.jpg",
   price: "42.90",
   msrp: "85.80",
@@ -2635,7 +2635,7 @@ const data = {
 },
 {
   name: "Aluminum Post",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA103.jpg",
   price: "39.49",
   msrp: "78.98",
@@ -2650,7 +2650,7 @@ const data = {
 },
 {
   name: "Wringer support ",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA105.jpg",
   price: "19.80",
   msrp: "39.60",
@@ -2665,7 +2665,7 @@ const data = {
 },
 {
   name: "Handle support",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA107.jpg",
   price: "10.34",
   msrp: "20.68",
@@ -2680,7 +2680,7 @@ const data = {
 },
 {
   name: "Hanging frame for bag",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA108.jpg",
   price: "25.74",
   msrp: "51.48",
@@ -2695,7 +2695,7 @@ const data = {
 },
 {
   name: "Plastic Mop base",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA112.jpg",
   price: "11.00",
   msrp: "22.00",
@@ -2710,7 +2710,7 @@ const data = {
 },
 {
   name: "Gray Large Nylon Trash bag",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA120.jpg",
   price: "41.80",
   msrp: "83.60",
@@ -2725,7 +2725,7 @@ const data = {
 },
 {
   name: "Polypropylene Hook for Cleaning Tools",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA121.jpg",
   price: "6.55",
   msrp: "13.09",
@@ -2740,7 +2740,7 @@ const data = {
 },
 {
   name: "Polypropylene Hook for Mop Handle ",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA122.jpg",
   price: "6.55",
   msrp: "13.09",
@@ -2755,7 +2755,7 @@ const data = {
 },
 {
   name: "Medium Locking cabinet",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-LOCKCABM.jpg",
   price: "132.00",
   msrp: "264.00",
@@ -2770,7 +2770,7 @@ const data = {
 },
 {
   name: "Fill Hose",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-LOCKCABL.jpg",
   price: "154.00",
   msrp: "308.00",
@@ -2785,7 +2785,7 @@ const data = {
 },
 {
   name: "Polypropylene Trash bag cover",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA123.jpg",
   price: "13.09",
   msrp: "26.28",
@@ -2800,7 +2800,7 @@ const data = {
 },
 {
   name: "Caster for base of trolley ",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA210.jpg",
   price: "10.95",
   msrp: "21.89",
@@ -2815,7 +2815,7 @@ const data = {
 },
 {
   name: "Rear wheel for cart",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA220.jpg",
   price: "21.95",
   msrp: "43.89",
@@ -2830,7 +2830,7 @@ const data = {
 },
 {
   name: "25L Polypropylene Bucket",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA25B.jpg",
   price: "39.60",
   msrp: "79.20",
@@ -2845,7 +2845,7 @@ const data = {
 },
 {
   name: "Gray Large Nylon Trash bag",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA25G.jpg",
   price: "39.60",
   msrp: "79.20",
@@ -2860,7 +2860,7 @@ const data = {
 },
 {
   name: "Hanging Wire Basket",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA36.jpg",
   price: "35.86",
   msrp: "71.72",
@@ -2875,7 +2875,7 @@ const data = {
 },
 {
   name: "Cam part",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CTA09.jpg",
   price: "3.03",
   msrp: "6.05",
@@ -2890,7 +2890,7 @@ const data = {
 },
 {
   name: "Vinyal trash bag",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-CART-BAG-SHORT.jpg",
   price: "22.00",
   msrp: "44.00",
@@ -2905,7 +2905,7 @@ const data = {
 },
 {
   name: "Key for Lock Cabinet",
-  system: "Module Cart and Accessories",
+  system: "Modular Cart and Accessories",
   image: "/images/IN-KEYCAB.jpg",
   price: "1.54",
   msrp: "3.08",
