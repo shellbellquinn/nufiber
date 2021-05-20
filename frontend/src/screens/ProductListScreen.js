@@ -74,6 +74,13 @@ export default function ProductListScreen(props) {
                 onClick={
                   createHandler}>Create Product
         </button>
+        <ReactHTMLTableToExcel id="test-table-xls-button"
+                                 className="download-table-xls-button primary"
+                                 table="table-to-xls"
+                                 filename="tablexls"
+                                 sheet="tablexls"
+                                 tpe="button"
+                                 buttonText="Download to Excel"/>
       </div>
 
       {
@@ -97,19 +104,12 @@ export default function ProductListScreen(props) {
 
 
         <div>
-          <ReactHTMLTableToExcel id="test-table-xls-button"
-                                 className="download-table-xls-button primary"
-                                 table="table-to-xls"
-                                 filename="tablexls"
-                                 sheet="tablexls"
-                                 tpe="button"
-                                 buttonText="Download to Excel"/>
-
 
           <table id="table-to-xls" className="table">
             <thead>
             <tr>
-              <th> IMAGE</th>
+              <th> THUMBNAIL </th>
+              <th> IMAGE SOURCE</th>
               <th> NUFIBER CODE</th>
               <th> NAME</th>
               <th> PRICE(ea)</th>
@@ -129,6 +129,7 @@ export default function ProductListScreen(props) {
                     alt={product.image}
                     className="small"/>
                   </td>
+                  <td>/images/{product.code}.jpg</td>
                   <td> {product.code} </td>
                   <td> {product.name} </td>
                   <td> ${product.price.toFixed(2)} </td>

@@ -19,6 +19,9 @@ export default function HomeScreen(props) {
     dividedSystem = 'divided',
     doubleSystem = 'double',
     floorSystem = 'floor',
+    clothSystem = 'cloth',
+    dustSystem = 'dust ',
+
 
   } = useParams();
   const dispatch = useDispatch();
@@ -31,6 +34,9 @@ export default function HomeScreen(props) {
   let dividedProducts = products;
   let doubleProducts = products;
   let floorProducts = products;
+  let clothProducts = products;
+  let dustProducts = products;
+
   if (products && wallSystem) {
     wallProducts = wallSystem === '' ? products : products.filter(product => {
       return (
@@ -66,6 +72,21 @@ export default function HomeScreen(props) {
       )
     })
   }  
+
+  if (products && clothSystem) {
+    clothProducts = clothSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(clothSystem) !== -1 
+      )
+    })
+  }  
+  if (products && dustSystem) {
+    dustProducts = dustSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(dustSystem) !== -1 
+      )
+    })
+  } 
     if (products && newSystem) {
       newProducts = newSystem === '' ? products : products.filter(product => {
         return (
@@ -155,6 +176,26 @@ export default function HomeScreen(props) {
               <h1>Walls, Counters, Desks, Windows Systems</h1>
               <div className="row center">
                 {wallProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {clothProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Microfiber Cloths</h1>
+              <div className="row center">
+                {clothProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {dustProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>Dust Mops</h1>
+              <div className="row center">
+                {dustProducts.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>

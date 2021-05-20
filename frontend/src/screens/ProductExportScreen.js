@@ -1,9 +1,8 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {createProduct, deleteProduct, listProducts} from '../actions/productActions';
+import {listProducts} from '../actions/productActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
-import {PRODUCT_CREATE_RESET, PRODUCT_DELETE_RESET,} from '../constants/productConstants';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 
@@ -15,54 +14,23 @@ export default function ProductListScreen(props) {
     products
   } = productList;
 
-  const productCreate = useSelector((state) => state.productCreate);
-  const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-    product: createdProduct,
-  } = productCreate;
 
-  const productDelete = useSelector((state) => state.productDelete);
-  const {
-    loading: loadingDelete,
-    error: errorDelete,
-    success: successDelete,
-  } = productDelete;
+
+
   const userInfo = useSelector((state) => state.userInfo);
   const dispatch = useDispatch();
   useEffect(() => {
-    if (successCreate) {
-      dispatch({
-        type: PRODUCT_CREATE_RESET
-      });
-      props.history.push(`/product/${createdProduct._id}/edit`);
-    }
-    if (successDelete) {
-      dispatch({
-        type: PRODUCT_DELETE_RESET
-      });
-    }
+
     dispatch(listProducts({}));
     // seller: sellerMode ? userInfo._id : ''
   }, [
-    createdProduct,
     dispatch,
     props.history,
     // sellerMode,
-    successCreate,
-    successDelete,
     userInfo._id,
   ]);
 
-  const deleteHandler = (product) => {
-    if (window.confirm('Are you sure to delete?')) {
-      dispatch(deleteProduct(product._id));
-    }
-  };
-  const createHandler = () => {
-    dispatch(createProduct());
-  };
+
 
 
   return (
@@ -72,17 +40,9 @@ export default function ProductListScreen(props) {
         <h1> Products </h1>
       </div>
 
-      {
-        loadingDelete && <LoadingBox> </LoadingBox>} {
-      errorDelete && < MessageBox variant="danger"> {
-        errorDelete
-      } </MessageBox>}
+
 
       {
-        loadingCreate && < LoadingBox> </LoadingBox>} {
-      errorCreate && < MessageBox variant="danger"> {
-        errorCreate
-      } </MessageBox>} {
       loading ? (<
           LoadingBox> </LoadingBox>
       ) : error ? (<
