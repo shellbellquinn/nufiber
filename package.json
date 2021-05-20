@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@progress/kendo-react-pdf": "^4.6.0",
+    "@react-pdf/renderer": "^2.0.12",
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

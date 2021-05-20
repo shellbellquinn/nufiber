@@ -220,6 +220,21 @@ function App() {
 
               <li>
                 <Link
+                  to={`/search/Duster`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Dusters
+                </Link>
+              </li>
+            )}
+            {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
                   to={`/search/Frames`}
                   onClick={() => setSidebarIsOpen(false)}
                 >
@@ -239,6 +254,36 @@ function App() {
                   onClick={() => setSidebarIsOpen(false)}
                 >
                   Replacements / Accessories
+                </Link>
+              </li>
+            )}
+                        {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Disposables`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Disposables
+                </Link>
+              </li>
+            )}
+                        {loadingSystems ? (
+              <LoadingBox></LoadingBox>
+            ) : errorSystems ? (
+              <MessageBox variant="danger">{errorSystems}</MessageBox>
+            ) : (
+
+              <li>
+                <Link
+                  to={`/search/Kits`}
+                  onClick={() => setSidebarIsOpen(false)}
+                >
+                  Kits
                 </Link>
               </li>
             )}

@@ -1,6 +1,6 @@
 import Axios from 'axios';
 // import { PayPalButton } from 'react-paypal-button-v2';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {detailsOrder} from '../actions/orderActions';
@@ -8,14 +8,12 @@ import {detailsOrder} from '../actions/orderActions';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import {ORDER_DELIVER_RESET, ORDER_PAY_RESET,} from '../constants/orderConstants';
-import Pdf from "react-to-pdf";
+import { useReactToPrint } from 'react-to-print';
 
 
 export default function OrderScreen(props) {
-  const ref = React.createRef();
-  const options = {
-    orientation: 'landscape',
-  };
+  
+
   const orderId = props.match.params.id;
   const [sdkReady, setSdkReady] = useState(false);
   const orderDetails = useSelector((state) => state.orderDetails);
@@ -65,6 +63,10 @@ export default function OrderScreen(props) {
       }
     }
   }, [dispatch, orderId, sdkReady, successPay, successDeliver, order]);
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
 
   // const successPaymentHandler = (paymentResult) => {
   //   dispatch(payOrder(order, paymentResult));
@@ -78,13 +80,13 @@ export default function OrderScreen(props) {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div className='root' ref={ref}>
+    <div className='root' ref={componentRef}>
       <h1>Order {order._id}</h1>
       <div className="row top">
         <div className="col-2">
           <ul>
             <li>
-              <div className="card card-body">
+              <div className="orders">
                 <h2>Shipping Information</h2>
                 <p>
                   <strong>Name:</strong> {order.shippingAddress.fullName} <br/>
@@ -103,7 +105,7 @@ export default function OrderScreen(props) {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="orders">
                 <h2>Payment</h2>
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
@@ -118,7 +120,7 @@ export default function OrderScreen(props) {
               </div>
             </li>
             <li>
-              <div className="card card-body">
+              <div className="orders">
                 <h2>Order Items</h2>
                 <ul>
                   {order.orderItems.map((item) => (
@@ -131,12 +133,9 @@ export default function OrderScreen(props) {
                             className="small"
                           ></img>
                           <p>{item.code}</p>
+                          <p>{item.name}</p>
                         </div>
-                        <div className="min-30">
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </div>
+
 
                         <div>
                           {item.qty} cases ({item.caseqty} per case) x ${item.price} =
@@ -156,23 +155,19 @@ export default function OrderScreen(props) {
               <li>
                 <h2>Order Summary</h2>
               </li>
-              <li>
-                <div className="row">
-                  <div>Items</div>
-                  <div>${order.itemsPrice.toFixed(2)}</div>
-                </div>
-              </li>
+
               <li>
                 <div className="row">
                   <div>Shipping</div>
-                  <div>${order.shippingPrice.toFixed(2)}</div>
+                  {/* <div>${order.shippingPrice.toFixed(2)}</div> */}
+                  <p>All orders placed online will display shipping and handling as TBD (to be determined) since freight is determined by the weight and distance and is calculated at the time of shipping </p>
                 </div>
               </li>
               <li>
-                <div className="row">
+                {/* <div className="row">
                   <div>Tax</div>
                   <div>${order.taxPrice.toFixed(2)}</div>
-                </div>
+                </div> */}
               </li>
               <li>
                 <div className="row">
@@ -180,14 +175,27 @@ export default function OrderScreen(props) {
                     <strong> Order Total</strong>
                   </div>
                   <div>
-                    <strong>${order.totalPrice.toFixed(2)}</strong>
+                    <strong>${order.itemsPrice.toFixed(2)}</strong>
                   </div>
+                  <div>
+                </div>
                 </div>
               </li>
-              <Pdf targetRef={ref} filename="nufiber-quote.pdf" options={options} scale={0.8}>
-
-                {({toPdf}) => <button className="primary block" onClick={toPdf}>Download Order as PDF</button>}
-              </Pdf>
+              <li>
+              <div className="row">
+                  <div>
+                    <strong> Suggested MSRP</strong>
+                  </div>
+                  <div>
+                    <strong>${2 * (order.itemsPrice).toFixed(2)}</strong>
+                  </div>
+                  <div>
+                </div>
+                </div>
+              </li>
+              <li>
+                 <button className="primary block" onClick={handlePrint}>Save Quote as PDF</button>
+              </li> 
               {/* {!order.isPaid && (
                 <li>
                   {!sdkReady ? (

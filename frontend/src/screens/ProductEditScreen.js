@@ -206,6 +206,10 @@ export default function ProductEditScreen(props) {
                   <option value="Frames / Handles">Frames / Handles</option>
                   <option value="Dusters">Dusters</option>
                   <option value="Replacements / Accessories">Replacements / Accessories</option>
+                  <option value="Disposables">Disposables</option>
+                  <option value="Kits">Kits</option>
+
+
                 </select>
               </div>
             </div>
