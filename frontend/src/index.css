@@ -421,6 +421,11 @@ img.large {
     margin: 0 0.2rem;
 }
 
+.smallbutton {
+    color: white;
+    background-color: blue;
+   }
+
 /* Carousel */
 .carousel .slide img {
     max-width: 30rem;

@@ -14,6 +14,7 @@ export default function PlaceOrderScreen(props) {
     props.history.push('/payment');
   }
   const orderCreate = useSelector((state) => state.orderCreate);
+  // const showPrice = useSelector ((state => state.showPrice))
   const {loading, success, error, order} = orderCreate;
   const toPrice = (num) => Number(num.toFixed(2)); // 5.123 => "5.12" => 5.12
   cart.itemsPrice = toPrice(
@@ -22,6 +23,8 @@ export default function PlaceOrderScreen(props) {
   cart.shippingPrice = cart.itemsPrice > 1500 ? toPrice(0) : 0.20 * cart.itemsPrice;
   cart.taxPrice = toPrice(0.15 * cart.itemsPrice);
   cart.msrp = toPrice(2 * cart.itemsPrice);
+
+
 
   cart.totalPrice = cart.itemsPrice + cart.shippingPrice + cart.taxPrice;
   const dispatch = useDispatch();
@@ -40,7 +43,28 @@ export default function PlaceOrderScreen(props) {
     content: () => componentRef.current,
   });
 
-  return (
+    function removePrice(){
+      if (document.getElementsByClassName('delete') !== null) {
+        const elements = document.getElementsByClassName("delete");
+        while(elements.length > 0){
+            elements[0].parentNode.removeChild(elements[0]);
+        }
+      }
+}
+
+
+function showPrice(){
+  window.location.reload()
+   }
+  
+
+
+
+    
+  
+  
+
+return (
     <>
     <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
     <div ref={componentRef}>
@@ -90,8 +114,8 @@ export default function PlaceOrderScreen(props) {
           
 
                   <div>
-                    {item.qty} cases ({item.caseqty} per case) x ${item.price} =
-                    ${ (item.qty * item.caseqty * item.price).toFixed(2) }
+                    {item.qty} cases ({item.caseqty} per case)
+                    <p className="delete">x ${item.price} = ${ (item.qty * item.caseqty * item.price).toFixed(2) }</p>
                   </div>
                 </div>
               </li>
@@ -107,36 +131,24 @@ export default function PlaceOrderScreen(props) {
         <li>
           <h2>Order Summary</h2>
         </li>
-        {/* <li>
-          <div className="row">
-            <div>Items</div>
-            <div>${cart.itemsPrice.toFixed(2)}</div>
-          </div>
-        </li> */}
+
         <li>
           <div className="row">
             <div>Shipping</div>
             <div>All orders placed online will display shipping and handling as TBD (to be determined) since freight is determined by the weight and distance and is calculated at the time of shipping</div>
           </div>
         </li>
-        {/* <li>
-          <div className="row">
-            <div>Tax</div>
-            <div>${cart.taxPrice.toFixed(2)}</div>
-          </div>
-        </li>*/}
-                      <li>
-                <div className="row">
+
+        <li>
+              <div className="delete row">
                   <div>
                     <strong> Order Total</strong>
                   </div>
-                  <div>
+                 <div>
                     <strong>${cart.itemsPrice.toFixed(2)}</strong>
                   </div>
-                  <div>
-                </div>
-                </div>
-              </li>
+              </div>
+         </li>
               <li>
               <div className="row">
                   <div>
@@ -145,8 +157,7 @@ export default function PlaceOrderScreen(props) {
                   <div>
                     <strong>${2 * (cart.itemsPrice).toFixed(2)}</strong>
                   </div>
-                  <div>
-                </div>
+
                 </div>
               </li>
         <li>
@@ -170,7 +181,29 @@ export default function PlaceOrderScreen(props) {
   </div>
 </div>
 </div>
+<div>
+<button  
+            type="button"
+            onClick={removePrice}
+            className="smallbutton"
+            disabled={cart.cartItems.length === 0}
+          >
+            Hide Distributor Price
+</button>
+
+<button  
+            type="button"
+            onClick={showPrice}
+            className="smallbutton"
+            disabled={cart.cartItems.length === 0}
+          >
+            Show Distributor Price
+</button>
+
+</div>
 </>
 );
 }
+
+
   
