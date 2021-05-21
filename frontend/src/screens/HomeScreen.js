@@ -21,6 +21,7 @@ export default function HomeScreen(props) {
     floorSystem = 'floor',
     clothSystem = 'cloth',
     dustSystem = 'dust ',
+    dusterSystem = 'duster ',
     ModularSystem = 'modular',
     specialSystem = "special"
 
@@ -38,6 +39,7 @@ export default function HomeScreen(props) {
   let floorProducts = products;
   let clothProducts = products;
   let dustProducts = products;
+  let dusterProducts = products;
   let ModularProducts = products;
   let specialProducts = products;
 
@@ -45,6 +47,13 @@ export default function HomeScreen(props) {
     wallProducts = wallSystem === '' ? products : products.filter(product => {
       return (
         product.system.toLowerCase().indexOf(wallSystem) !== -1 
+      )
+    })
+  }
+  if (products && dusterSystem) {
+    dusterProducts = dusterSystem === '' ? products : products.filter(product => {
+      return (
+        product.system.toLowerCase().indexOf(dusterSystem) !== -1 
       )
     })
   }
@@ -204,6 +213,16 @@ export default function HomeScreen(props) {
               <h1>Microfiber Cloths</h1>
               <div className="row center">
                 {clothProducts.map((product) => (
+                  <Product key={product._id} product={product}></Product>
+                ))}
+              </div>
+
+              {dusterProducts.length === 0 && (
+                <MessageBox>No Product Found</MessageBox>
+              )}
+              <h1>High Duster Tools</h1>
+              <div className="row center">
+                {dusterProducts.map((product) => (
                   <Product key={product._id} product={product}></Product>
                 ))}
               </div>

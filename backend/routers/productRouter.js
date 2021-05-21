@@ -117,6 +117,8 @@ productRouter.post(
       dimension: "TBD",
       producttype: "Replacements / Accessories",
       caseqty: 0,
+      countInStock: "20",
+      dupsystem: ""
     });
     const createdProduct = await product.save();
     res.send({ message: 'Product Created', product: createdProduct });
