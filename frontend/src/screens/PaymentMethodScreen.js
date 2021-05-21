@@ -58,7 +58,7 @@ export default function PaymentMethodScreen(props) {
               required
               onChange={(e) => setPaymentMethod(e.target.value)}
             ></input>
-            <label htmlFor="Quote">Invoice Me</label>
+            <label htmlFor="Quote">Save to Order History</label>
           </div>
         </div>
         <div>
